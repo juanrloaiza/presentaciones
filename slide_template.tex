@@ -1,0 +1,539 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+$if(colorlinks)$
+\PassOptionsToPackage{usenames,dvipsnames,svgnames*,x11names*}{xcolor}
+$endif$
+
+\documentclass[
+$if(fontsize)$
+  $fontsize$,
+  $else$
+  9pt,
+$endif$
+$if(lang)$
+  $babel-lang$
+$endif$
+$if(papersize)$
+  $papersize$paper,
+$endif$
+$if(beamer)$
+  ignorenonframetext,
+$if(handout)$
+  handout,
+$endif$
+$if(aspectratio)$
+  aspectratio=$aspectratio$,
+$endif$
+$endif$
+$for(classoption)$
+  $classoption$$sep$,
+$endfor$
+]{$documentclass$}
+
+$if(beamer)$
+  \usepackage{pgfpages}
+  \setbeamertemplate{caption}[numbered]
+  \setbeamertemplate{caption label separator}{: }
+  \setbeamercolor{caption name}{fg=normal text.fg}
+  \beamertemplatenavigationsymbols$if(navigation)$$navigation$$else$empty$endif$
+
+  %%
+  %%% Definition of colors
+  %%% Source: https://latexcolor.com/
+  \definecolor{blanchedalmond}{rgb}{1.0, 0.92, 0.8}
+  \definecolor{blond}{rgb}{0.98, 0.94, 0.75}
+  %%% End of definition of colors
+  %%
+
+  $for(beameroption)$
+  \setbeameroption{$beameroption$}
+  $endfor$
+  % Prevent slide breaks in the middle of a paragraph
+  \widowpenalties 1 10000
+  \raggedbottom
+  $if(section-titles)$
+    \setbeamertemplate{part page}{
+      \centering
+      \begin{beamercolorbox}[sep=16pt,center]{part title}
+        \usebeamerfont{part title}\insertpart\par
+      \end{beamercolorbox}
+    }
+    \setbeamertemplate{section page}{
+      \centering
+      \begin{beamercolorbox}[sep=12pt,center]{part title}
+        {\usebeamerfont{section name}\usebeamercolor[fg]{section name}}
+        {\usebeamerfont{section title}\insertsection\par}
+      \end{beamercolorbox}
+    }
+    \AtBeginPart{
+      \frame{\partpage}
+    }
+    \AtBeginSubsection{
+      \frame{\subsectionpage}
+    }
+  $endif$
+$endif$
+
+$if(beamerarticle)$
+  \usepackage{beamerarticle} % needs to be loaded first
+$endif$
+
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\fi
+
+$if(beamer)$
+$if(theme)$
+\usetheme[$for(themeoptions)$$themeoptions$$sep$,$endfor$]{$theme$}
+$else$
+\usetheme{Berlin}
+\makeatletter
+\def\beamer@writeslidentry{\clearpage\beamer@notesactions}
+\makeatother
+
+% Head Line
+\setbeamercolor{headline}{bg=airforceblue!50!black,fg=white}
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=4ex,dp=4ex,left]{headline}
+    \hspace{6pt}
+    \usebeamerfont{headline}
+    \insertsectionhead
+    \vskip3pt
+  \end{beamercolorbox}%
+  \vspace{-10pt}
+}
+
+$endif$
+$if(colortheme)$
+\usecolortheme{$colortheme$}
+$endif$
+$if(innertheme)$
+\useinnertheme{$innertheme$}
+$endif$
+$if(outertheme)$
+\useoutertheme{$outertheme$}
+$endif$
+$endif$
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\usepackage{bookmark}
+\usepackage{hyperref}
+\hypersetup{
+$if(title-meta)$
+  pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+  pdfauthor={$author-meta$},
+$endif$
+$if(lang)$
+  pdflang={$lang$},
+$endif$
+$if(subject)$
+  pdfsubject={$subject$},
+$endif$
+$if(keywords)$
+  pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$
+$if(colorlinks)$
+  colorlinks=true,
+  linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
+  filecolor=$if(filecolor)$$filecolor$$else$Maroon$endif$,
+  citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
+  urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$,
+$else$
+  hidelinks,
+$endif$
+}
+
+$if(verbatim-in-note)$
+\VerbatimFootnotes % allow verbatim text in footnotes
+$endif$
+
+$if(geometry)$
+  $if(beamer)$
+  \geometry{$for(geometry)$$geometry$$sep$,$endfor$}
+  $else$
+  \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+  $endif$
+$endif$
+
+ 
+$if(beamer)$
+\newif\ifbibliography
+$endif$
+
+$if(listings)$
+\usepackage{listings}
+\newcommand{\passthrough}[1]{#1}
+\lstset{defaultdialect=sh}
+\lstset{framexleftmargin=0mm, frame=trBL,backgroundcolor=\color{blanchedalmond!5},numbers=left,numberstyle=\scriptsize,basicstyle=\small}
+\lstset{aboveskip=5mm,belowskip=5mm,xleftmargin=20pt,xrightmargin=5pt}
+% \lstset{prebreak={\raisebox{0ex}[0ex][0ex]}}
+% \lstset{postbreak={\raisebox{0ex}[0ex][0ex]\space}}
+\lstset{breaklines=true,breakatwhitespace=true}
+$endif$
+
+\usepackage{tabularx}
+
+  $if(tables)$
+  \usepackage{longtable,booktabs}
+    $if(beamer)$
+    \usepackage{caption}
+    % Make caption package work with longtable
+    \makeatletter
+    \def\fnum@table{\tablename~\thetable}
+    \makeatother
+    $else$
+    % Correct order of tables after \paragraph or \subparagraph
+    \usepackage{etoolbox}
+    \makeatletter
+    \patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+    \makeatother
+    % Allow footnotes in longtable head/foot
+    \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+    \makesavenoteenv{longtable}
+    $endif$
+  $endif$
+
+  $if(graphics)$
+  \usepackage{graphicx,grffile}
+  \makeatletter
+  \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+  \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+  \makeatother
+  % Scale images if necessary, so that they will not overflow the page
+  % margins by default, and it is still possible to overwrite the defaults
+  % using explicit options in \includegraphics[width, height, ...]{}
+  \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+  % Set default figure placement to htbp
+  \makeatletter
+  \def\fps@figure{htbp}
+  \makeatother
+  $endif$
+
+  $if(links-as-notes)$
+  % Make links footnotes instead of hotlinks:
+  \DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+  $endif$
+
+  $if(strikeout)$
+  \usepackage[normalem]{ulem}
+  % Avoid problems with \sout in headers with hyperref
+  \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+  $endif$
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+% Lists
+\providecommand{\tightlist}{}
+
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{enumerate items}[default]
+
+\setbeamertemplate{itemize/enumerate subbody begin}{\vspace{0cm}}
+\setbeamertemplate{itemize/enumerate subbody end}{\vspace{0cm}}
+
+% Slide size
+\setbeamersize{text margin left=3em, text margin right=3em}
+
+\addtobeamertemplate{quote begin}{\vskip1ex}{}
+
+% Set columns vertical spacing
+\makeatletter
+\newcommand{\@minipagerestore}{\setlength{\parskip}{3pt}}
+\makeatother
+
+% Paragraphs
+\setlength\parskip{0.5\baselineskip}
+\linespread{1.15}\selectfont % <---
+
+% Color palette
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\definecolor{blue}{HTML}{095086}
+\definecolor{green}{HTML}{098721}
+\definecolor{red}{HTML}{E23512}
+\definecolor{gray}{HTML}{555566}
+
+
+\setbeamercolor{structure}{fg=airforceblue} % itemize, enumerate, etc
+
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
+
+% Use custom font
+\usefonttheme{professionalfonts}
+
+\usepackage{amssymb,amsmath} % Must be loaded before mathspec
+\usepackage{mathspec}
+\makeatletter % undo the wrong changes made by mathspec, see https://tex.stackexchange.com/questions/85696/what-causes-this-strange-interaction-between-glossaries-and-amsmath
+\let\RequirePackage\original@RequirePackage
+\let\usepackage\RequirePackage
+\makeatother
+
+\setmathsfont(Latin,Digits,Greek){TeX Gyre Bonum}
+
+\usepackage{fontspec}
+\setsansfont{Lato}
+
+\usepackage{fontawesome5}
+
+\setbeamertemplate{title page}{
+  $if(course)$
+  $course$\\\vspace{3pt}
+  $endif$
+  {\LARGE\bfseries
+      \inserttitle
+  }\par\vskip1em
+  {\large
+      \insertauthor
+  }\par
+  {\small 
+  Departamento de Filosofía\\
+  Universidad Alberto Hurtado
+  }\par
+
+  {\footnotesize \insertdate}  
+  }
+
+
+  $if(numbersections)$
+  \setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+  $else$
+  \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+  $endif$
+
+%
+% When using babel or polyglossia with biblatex, loading csquotes is recommended 
+% to ensure that quoted texts are typeset according to the rules of your main language.
+%
+\usepackage{csquotes}
+
+% blockquote
+%
+\definecolor{blockquote-border}{RGB}{221,221,221}
+\definecolor{blockquote-text}{RGB}{89,89,89}
+
+\usepackage[framemethod=TikZ]{mdframed}
+\surroundwithmdframed[%
+  linewidth=0.5pt,%
+  linecolor=gray!50!white,
+  skipabove=1em,%
+  skipbelow=2em,%
+  leftmargin=0.5em,%
+  rightmargin=1em,%
+  innerleftmargin=-1em,%
+  innerrightmargin=-1em%,
+  innertopmargin=0.2em,%
+  innerbottommargin=0.5em,%
+  roundcorner=5pt]{quote}
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\setbeamercolor{block body example}{bg=green!10!white}
+\setbeamercolor{block title example}{bg=green!50!black, fg=white}
+
+\setbeamercolor{block body}{bg=white}
+\setbeamercolor{block title}{bg=white,fg=airforceblue}
+
+% Use ~ as negation
+\renewcommand{\lnot}{\mathord{\sim}}
+
+% Define bordered boxes
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox{alertbox}[1]{%
+  colback=red!5!white,%
+  colframe=red!75!black,%
+  left=1ex,%
+  right=1ex,%
+  top=0.5ex,%
+  title={#1}
+}
+% Don't italicize quotes
+\setbeamerfont{quote}{shape=\upshape}
+\setbeamercolor{quote}{fg=gray}
+
+
+
+  $if(beamer)$
+  $else$
+    $if(block-headings)$
+    % Make \paragraph and \subparagraph free-standing
+    \ifx\paragraph\undefined\else
+      \let\oldparagraph\paragraph
+      \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+    \fi
+    \ifx\subparagraph\undefined\else
+      \let\oldsubparagraph\subparagraph
+      \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+    \fi
+    $endif$
+  $endif$
+
+  $if(pagestyle)$
+  \pagestyle{$pagestyle$}
+  $endif$
+
+  $for(header-includes)$
+  $header-includes$
+  $endfor$
+
+  $if(lang)$
+    \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+  
+    $if(babel-newcommands)$
+      $babel-newcommands$
+    $endif$
+
+  $endif$
+
+  $if(natbib)$
+  \usepackage[$natbiboptions$]{natbib}
+  \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+  $endif$
+  $if(biblatex)$
+  \usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+    $for(bibliography)$
+    \addbibresource{$bibliography$}
+    $endfor$
+  $endif$
+
+  $if(title)$
+  \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+  $endif$
+  $if(subtitle)$
+    $if(beamer)$
+    $else$
+    \usepackage{etoolbox}
+    \makeatletter
+    \providecommand{\subtitle}[1]{% add subtitle to \maketitle
+      \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+    }
+    \makeatother
+    $endif$
+  \subtitle{$subtitle$}
+  $endif$
+  $if(author)$
+  \author{$for(author)$$author$$sep$ \and $endfor$}
+  $else$
+  \author{Juan R. Loaiza}
+  $endif$
+\date{$date$}
+$if(beamer)$
+  $if(institute)$
+  \institute{$for(institute)$$institute$$sep$ \and $endfor$}
+  $else$
+  \institute{Departamento de Filosofía · Universidad Alberto Hurtado}
+  $endif$
+  $if(titlegraphic)$
+  \titlegraphic{\includegraphics{$titlegraphic$}}
+  $endif$
+  $if(logo)$
+  \logo{\includegraphics{$logo$}}
+  $endif$
+$endif$
+
+\usepackage{setspace}
+
+\begin{document}
+$if(has-frontmatter)$
+\frontmatter
+$endif$
+$if(title)$
+$if(beamer)$
+\frame{\titlepage}
+$else$
+\maketitle
+$endif$
+$if(abstract)$
+\begin{abstract}
+  $abstract$
+\end{abstract}
+$endif$
+$endif$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+$if(toc-title)$
+\renewcommand*\contentsname{$toc-title$}
+$endif$
+$if(beamer)$
+\begin{frame}
+  $if(toc-title)$
+  \frametitle{$toc-title$}
+  $endif$
+  \tableofcontents[hideallsubsections]
+\end{frame}
+$else$
+{
+    $if(colorlinks)$
+    \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
+    $endif$
+    \setcounter{tocdepth}{$toc-depth$}
+    \tableofcontents
+  }
+$endif$
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+$if(lof)$
+\listoffigures
+$endif$
+\setstretch{$if(linestretch)$$linestretch$$else$1.15$endif$}
+$if(has-frontmatter)$
+\mainmatter
+$endif$
+$body$
+
+$if(has-frontmatter)$
+\backmatter
+$endif$
+$if(natbib)$
+$if(bibliography)$
+$if(biblio-title)$
+$if(has-chapters)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+$if(beamer)$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+  \bibliographytrue
+  $endif$
+  \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+  $if(beamer)$
+\end{frame}
+$endif$
+
+$endif$
+$endif$
+$if(biblatex)$
+$if(beamer)$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+  \bibliographytrue
+  \printbibliography[heading=none]
+\end{frame}
+$else$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+$endif$
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}
+

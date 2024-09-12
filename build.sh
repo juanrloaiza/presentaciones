@@ -1,5 +1,7 @@
 #!/bin/bash
 
+MERMAID_BIN=mmcli
+
 TEMPLATE=$(realpath slide_template.tex)
 MAIN_DIRECTORY=$(pwd)
 

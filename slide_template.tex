@@ -255,12 +255,18 @@ $endif$
 \setlength\parskip{0.5\baselineskip}
 \linespread{1.15}\selectfont % <---
 
+% Custom bibliography reference command
+\newcommand{\cit}[1]{\newline {\footnotesize \textcolor{lightgray}{(#1)}}}
+
+
 % Color palette
 \definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
 \definecolor{blue}{HTML}{095086}
 \definecolor{green}{HTML}{098721}
 \definecolor{red}{HTML}{E23512}
 \definecolor{gray}{HTML}{555566}
+\definecolor{lightgray}{HTML}{808080}
+
 
 
 \setbeamercolor{structure}{fg=airforceblue} % itemize, enumerate, etc

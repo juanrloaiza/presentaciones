@@ -10,38 +10,38 @@ date: 19 de septiembre de 2024
 
 ## Conceptos científicos y cotidianos de emoción
 
-¿Cómo construir **conceptos científicos** de emoción?
+¿Cómo construir **conceptos científicos** de emoción? \pause
 
-1. Búsqueda de **clases naturales**
-   * No hay buena **evidencia** de que haya la especificidad y consistencia necesarias. \cit{Griffiths, 1997; Barrett, 2006}
+1. Búsqueda de **clases naturales** \pause
+   * No hay buena **evidencia** de que haya la especificidad y consistencia necesarias. \cit{Griffiths, 1997; Barrett, 2006} \pause
 
-2. Anclaje sobre **conceptos cotidianos**
-   * Las categorías cotidianas refieren a clasificaciones correctas.
-   * \textcolor{blue}{Las categorías científicas \textbf{abstraen} sobre categorías cotidianas (\textbf{funcionalismo}).}
+2. Anclaje sobre **conceptos cotidianos** \pause
+   * Las categorías cotidianas refieren a clasificaciones correctas. \pause
+   * \textcolor{blue}{Las categorías científicas \textbf{abstraen} sobre categorías cotidianas (\textbf{funcionalismo}).} \pause
 
 La ciencia de la emoción comienza con el reconocimiento de categorías cotidianas que fijan un *explanandum*.
 
 ## Problema
 
-¿Sobre qué conceptos cotidianos específicamente anclamos las categorías científicas?
+¿Sobre qué conceptos cotidianos específicamente anclamos las categorías científicas? \pause
 
-* La tradición ha asumido clasificaciones del **inglés** (**anglocentrismo**). \cit{Wierzbicka, 1999; 2014}
+* La tradición ha asumido clasificaciones del **inglés** (**anglocentrismo**). \cit{Wierzbicka, 1999; 2014} \pause
 
-Cualquier solución (realista o funcionalista) reifica los conceptos de emoción del inglés.
+Cualquier solución (realista o funcionalista) reifica los conceptos de emoción del inglés. \pause
 
-* Sobrestimación de hipótesis traducibles al inglés
-* Descalibración de hipótesis sobre variaciones culturales
+* Sobrestimación de hipótesis traducibles al inglés. \pause
+* Descalibración de hipótesis sobre variaciones culturales.
 
 ## Propuesta
 
-**Tesis:** Debemos asumir una forma **deflacionaria** de **universalismo metodológico**.
+**Tesis:** Debemos asumir una forma **deflacionaria** de **universalismo metodológico**. \pause
 
-* Se formulan conceptos locales con intención universalista.
-* La suposición universalista es explícitamente impuesta, **no descubierta**.
+* Se formulan conceptos locales con intención universalista. \pause
+* La suposición universalista es explícitamente impuesta, **no descubierta**. \pause
 
-Consecuencias:
+Consecuencias: \pause
 
-* Ciencias situadas con énfasis en similaridades relevantes.
+* Ciencias situadas con énfasis en similaridades relevantes. \pause
 * Criterios explícitos de revisión de conceptos.
 
 ## Estrategia
@@ -54,34 +54,35 @@ Consecuencias:
 
 ## Universalismo y Teoría de las Emociones Básicas
 
-La ciencia de las emociones ha sido predominantemente **universalista**.
+La ciencia de las emociones ha sido predominantemente **universalista**. \pause
 
-* Ekman y Friesen (1969): Expresiones universales $\Rightarrow$ Emociones básicas
-  * Alegría, Temor, Ira, Sorpresa, Tristeza, Asco
+* Ekman y Friesen (1969): Expresiones universales $\Rightarrow$ Emociones básicas \pause
+  * Alegría, Temor, Ira, Sorpresa, Tristeza, Asco \pause
 
-Si las emociones son patrones biológicos, deben ser universales.
+Si las emociones son patrones biológicos, deben ser universales. \pause
 
-* Evidencia de universalidad confirma la hipótesis biológica.
+* Evidencia de universalidad confirma la hipótesis biológica. \pause
+* Presunta evidencia robusta de universalidad \cit{pero véase Russell, 1994}. \pause
 
 ## Relativismos
 
-El **relativismo** aparece en dos frentes.
+El **relativismo** aparece en dos frentes. \pause
 
 :::: {.columns .onlytextwidth}
 ::: {.column}
 
-Ciencias sociales (e.g., antropología) \cit{Mead; Lutz, 1970}
+Ciencias sociales (e.g., antropología) \cit{Mead, 1967; Lutz, 1970} \pause
 
-* El **lenguaje** fija la realidad.
-* Diferencias en términos deben asumirse como diferencias ontológicas.
+* El **lenguaje** fija la realidad. \pause
+* Diferencias en términos deben asumirse como diferencias ontológicas. \pause
 
 :::
 ::: {.column}
 
-Construccionismo psicológico \cit{Barrett, 2017}
+Construccionismo psicológico \cit{Barrett, 2017} \pause
 
-* Las emociones son operaciones (mentales) conceptuales.
-* Los conceptos son aprendidos en un contexto sociocultural.
+* Las emociones son operaciones (mentales) conceptuales. \pause
+* Los conceptos son aprendidos en un contexto sociocultural. \pause
 
 :::
 ::::
@@ -91,64 +92,64 @@ Construccionismo psicológico \cit{Barrett, 2017}
 
 ## Problemas de perspectivas
 
-Hay diferencias **ontológicas** entre universalistas y relativistas.
+Hay diferencias **ontológicas** entre universalistas y relativistas. \pause
 
-* No hay lugar común para recopilar evidencia relevante.
+* No hay lugar común para recopilar evidencia relevante. \pause
 
-Necesitamos un **punto de referencia** para identificar fenómenos relevantes.
+Necesitamos un **punto de referencia** para identificar fenómenos relevantes. \pause
 
-* Conceptos teóricos $\Rightarrow$ Circularidad
-* Conceptos cotidianos
-  * Definirlos en términos de un **metalenguaje** universal.
+* Conceptos teóricos $\Rightarrow$ Circularidad \pause
+* Conceptos cotidianos \pause
+  * Definirlos en términos de un **metalenguaje** universal. \pause
   * Explicitar la **perspectiva** desde la que se definen.
 
 # Wierzbicka y el _Natural Semantic Metalanguage_
 
 ## Estrategia 1: Definición de un metalenguaje
 
-Wierzbicka (1999) propone buscar **universales semánticos**.
-
-* Metalenguaje minimalista con conceptos universales.
-
-Partículas:
-
 :::: {.columns .onlytextwidth}
-::: {.column width="30%"}
+::: {.column width=40%}
 
-Sustantivos
+Wierzbicka (1999) propone buscar **universales semánticos**. \pause
 
-Yo; Tú; Alguien; Algo; Gente...
-
-:::
-::: {.column width="30%"}
-
-Determinantes
-
-Este; Mismo; Otro...
+* Metalenguaje **minimalista** con conceptos universales. \pause
+* Permitiría traducciones "neutrales" entre lenguajes. \pause
 
 :::
-::: {.column width="30%"}
+::: {.column width=57%}
 
-Cuantificadores
+\small
 
-Uno; Dos; Algunos; Muchos...
+* **Sustantivos**: Yo; Tú; Alguien; Algo; Gente...
 
+* **Determinantes**: Este; Mismo; Otro...
+
+* **Cuantificadores**: Uno; Dos; Algunos; Muchos... 
+
+* **Atributos**: Bueno; Malo; Grande; Pequeño
+
+* **Predicados mentales**: Pensar; Saber/Conocer; Querer...
+
+* **Habla**: Decir; Palabra; Verdad
 
 :::
 ::::
 
+
+
+
 ## Ejemplos
 
-sadness (e.g., X feels sad)
+`sadness` (e.g., X feels sad)  \pause
 
-(a) X feels something
-    (b) sometimes a person thinks:
-    (c) "I know: something bad happened
-    (d) I don’t want things like this to happen
-    (e) I can’t think now: I will do something because of this
-    (f) I know that I can’t do anything"
-    (g) because of this, this person feels something bad
-(b) X feels something like this
+(a) X feels something  \pause
+    (b) sometimes a person thinks:  \pause
+    (c) "I know: something bad happened \pause
+    (d) I don’t want things like this to happen \pause
+    (e) I can’t think now: I will do something because of this \pause
+    (f) I know that I can’t do anything" \pause
+    (g) because of this, this person feels something bad \pause
+(h) X feels something like this
 
 ## Traducción entre lenguajes
 
@@ -226,14 +227,14 @@ sadness (e.g., X feels sad)
 
 ## ¿Semántica o epistemología?
 
-El NSM ofrece una **semántica** universalista.
+El NSM ofrece una **semántica** universalista. \pause
 
-¿Cómo sabemos que una interpretación es **correcta**?
+¿Cómo sabemos que una interpretación es **correcta**? \pause
 
-  * $H_1$: grust $\rightarrow$ Sentimiento de corta duración sin pensamiento específico asociado
-  * ¿Cuáles son los criterios de confirmación de $H_1$?
+  * $H_1$: grust $\rightarrow$ Sentimiento de corta duración sin pensamiento específico asociado \pause
+  * ¿Cuáles son los criterios de confirmación de $H_1$? \pause
 
-¡No podemos elegir entre hipótesis rivales!
+¡No podemos elegir entre hipótesis rivales! \pause
 
 Falta una **epistemología** para dirimir entre hipótesis.
 
@@ -241,13 +242,13 @@ Falta una **epistemología** para dirimir entre hipótesis.
 
 ## Estrategia 2: Universalismo metodológico
 
-**Objetivo**: Formular conceptos de emoción empíricamente contrastables a través de culturas.
+**Objetivo**: Formular conceptos de emoción empíricamente contrastables a través de culturas. \pause
 
 **Dificultades:**
 
-1. ¿Cuándo una reacción observada constituye una reacción emocional?
-2. ¿Cuándo una emoción observada es del **mismo tipo** de una emoción ya identificada?
-3. ¿Cuáles son las **condiciones de revisión** de hipótesis asociadas?
+1. ¿Cuándo una reacción observada constituye una reacción emocional? \pause
+2. ¿Cuándo una emoción observada es del **mismo tipo** de una emoción ya identificada? \pause
+3. ¿Cuáles son las **condiciones de revisión** de hipótesis asociadas? \pause
 
 **Propuesta**: Las condiciones de revisión y confirmación exigen una decisión ontológica, pero no una epistemología universalista.
 
@@ -257,39 +258,98 @@ Falta una **epistemología** para dirimir entre hipótesis.
 
 ## Decisiones ontológicas
 
-Las decisiones ontológicas pueden establecerse desde una perspectiva específica.
+Las decisiones ontológicas pueden establecerse desde una perspectiva específica. \pause
 
-* Hay algo a lo que *nosotros/as* llamamos «emoción»/«alegría»/«tristeza»/etc.
-* La especificación de categorías cotidianas fija una **ontología de trasfondo**.
+* Hay algo a lo que *nosotros/as* llamamos «emoción»/«alegría»/«tristeza»/etc. \pause
+* La especificación de categorías cotidianas fija una **ontología de trasfondo**. \pause
 
-Podemos explicitar la ontología de trasfondo sin reificarla.
+Podemos explicitar la ontología de trasfondo sin reificarla. \pause
 
-* Explicitar sus condiciones internas de revisión conceptual.
+* Explicitar sus condiciones internas de revisión conceptual. \pause
 * Su universalización no es un **descubrimiento**, sino una **estipulación**.
 
 ## Relativismo de aspecto
 
-¿En qué sentido puede haber diferencias culturales sobre las emociones?
+¿En qué sentido puede haber diferencias culturales sobre las emociones? \pause
 
-* Diferencias en aspectos específicos, mas no en tipos.
-  * Las diferencias de categoría implican perspectiva universalista.
+* Diferencias en **aspectos específicos**, mas no en tipos (repertorios). \pause
+  * Las diferencias de categoría implican perspectiva universalista. \pause
 
-Ejemplos:
+Ejemplos: \pause
 
-* Objetos o antecedentes de la emoción
-* Normas sociales de expresión y conducta
+* Objetos o antecedentes de la emoción \pause
+* Normas sociales de expresión y conducta \pause
 * Descripciones culturales
+
+## Ejemplo: "Sadness"
+
+Comparte propiedades con `grust` y \texttt{pe\v{c}al}. \pause
+
+* Sentimiento de valencia negativa \pause
+* Tiene por objeto (\textcolor{blue}{formal}) no querer que el objeto sea el caso. \pause
+
+Las propiedades comunes justifican la clasificación conjunta. \pause
+
+Podemos estudiar variaciones de aspecto: \pause
+
+* Duración temporal \pause
+* Especificidad de los objetos
 
 ## Dificultades
 
-Si la ontología está estipulada, ¿no resulta en una imposición arbitraria?
+:::: {.columns .onlytextwidth}
+::: {.column}
 
-* La ontología mantiene condiciones internas de revisión.
-* Reconocimiento de presuposiciones ontológicas relativas.
+Si la ontología está estipulada, ¿no resulta en una imposición arbitraria? \pause
 
-¿Desde qué perspectiva comenzar? ¿Aceptar el anglocentrismo?
+* La ontología mantiene condiciones internas de revisión. \pause
+* Reconocimiento de presuposiciones ontológicas relativas. \pause
 
-* El problema del anglocentrismo no es el inglés, sino la opresión.
+:::
+::: {.column}
+
+¿Desde qué perspectiva comenzar? ¿Aceptar el anglocentrismo? \pause
+
+* El problema del anglocentrismo no es el inglés, sino la opresión. \pause
 * Necesario explicitar las condiciones reales de producción del conocimiento en psicología experimental.
 
-# Resumen
+:::
+::::
+
+## Resumen
+
+La ciencia de las emociones debe anclarse sobre conceptos cotidianos, ¿pero cuáles? \pause
+
+* **Estrategia 1:** Formular un metalenguaje para traducir entre conceptos de emoción. \pause
+  * No nos informa sobre la epistemología en juego. \pause
+* \textcolor{blue}{\textbf{Estrategia 2}: Aceptar la ontología de trasfondo y explicitar condiciones de revisión conceptual.} \pause
+  * **Proyecto**: Especificar las condiciones de revisión conceptual y perspectivas de producción de conceptos.
+
+#
+
+## 
+
+:::: {.columns .onlytextwidth align="center"}
+::: {.column}
+
+\centering
+
+**¡Gracias!**
+
+Juan R. Loaiza
+
+jloaiza@uahurtado.cl
+
+www.juanrloaiza.com
+
+santiagomindandcognition.cl
+
+:::
+::: {.column}
+
+\centering
+
+![](qr.pdf)
+
+:::
+::::

@@ -1,9 +1,6 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
-$if(colorlinks)$
-\PassOptionsToPackage{usenames,dvipsnames,svgnames*,x11names*}{xcolor}
-$endif$
 
 \documentclass[
 $if(fontsize)$
@@ -122,7 +119,7 @@ $endif$
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 
 
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \usepackage{bookmark}
 \usepackage{hyperref}
@@ -290,6 +287,7 @@ $endif$
 \setsansfont{Lato}
 
 \usepackage{fontawesome5}
+\usepackage{annotate-equations}
 
 \setbeamertemplate{title page}{
   $if(course)$
@@ -327,6 +325,10 @@ $endif$
 \definecolor{blockquote-border}{RGB}{221,221,221}
 \definecolor{blockquote-text}{RGB}{89,89,89}
 
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.pathreplacing}
 \usepackage[framemethod=TikZ]{mdframed}
 \surroundwithmdframed[%
   linewidth=0.5pt,%

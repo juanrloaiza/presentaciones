@@ -150,10 +150,6 @@ $else$
 $endif$
 }
 
-$if(verbatim-in-note)$
-\VerbatimFootnotes % allow verbatim text in footnotes
-$endif$
-
 $if(geometry)$
   $if(beamer)$
   \geometry{$for(geometry)$$geometry$$sep$,$endfor$}
@@ -264,8 +260,6 @@ $endif$
 \definecolor{gray}{HTML}{555566}
 \definecolor{lightgray}{HTML}{808080}
 
-
-
 \setbeamercolor{structure}{fg=airforceblue} % itemize, enumerate, etc
 
 \usepackage{caption}
@@ -289,6 +283,7 @@ $endif$
 \usepackage{fontawesome5}
 \usepackage{annotate-equations}
 
+% Title slide template
 \setbeamertemplate{title page}{
   $if(course)$
   $course$\\\vspace{3pt}
@@ -305,6 +300,14 @@ $endif$
   }\par
 
   {\footnotesize \insertdate}  
+  }
+
+  % Footnote template
+  \renewcommand\footnoterule{}
+  \setbeamertemplate{footnote}{%
+    \color{gray}
+    \vspace{1pt}
+    \makebox[1em][l]{\insertfootnotemark}\footnotesize\insertfootnotetext\par%
   }
 
 

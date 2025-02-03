@@ -3,16 +3,12 @@
 \PassOptionsToPackage{hyphens}{url}
 
 \documentclass[
-$if(fontsize)$
-  $fontsize$,
-  $else$
-  9pt,
-$endif$
+$if(fontsize)$$fontsize$, $else$9pt, $endif$
 $if(lang)$
-  $babel-lang$
+  $babel-lang$, 
 $endif$
 $if(papersize)$
-  $papersize$paper,
+  $papersize$paper, 
 $endif$
 $if(beamer)$
   ignorenonframetext,
@@ -24,7 +20,7 @@ $if(aspectratio)$
 $endif$
 $endif$
 $for(classoption)$
-  $classoption$$sep$,
+$classoption$$sep$,
 $endfor$
 ]{$documentclass$}
 
@@ -35,36 +31,33 @@ $if(beamer)$
   \setbeamercolor{caption name}{fg=normal text.fg}
   \beamertemplatenavigationsymbols$if(navigation)$$navigation$$else$empty$endif$
 
-  %%
-  %%% Definition of colors
-  %%% Source: https://latexcolor.com/
-  \definecolor{blanchedalmond}{rgb}{1.0, 0.92, 0.8}
-  \definecolor{blond}{rgb}{0.98, 0.94, 0.75}
-  %%% End of definition of colors
-  %%
-
   $for(beameroption)$
   \setbeameroption{$beameroption$}
   $endfor$
+
   % Prevent slide breaks in the middle of a paragraph
   \widowpenalties 1 10000
   \raggedbottom
+
   $if(section-titles)$
+    % Design the part slide
     \setbeamertemplate{part page}{
       \centering
       \begin{beamercolorbox}[sep=16pt,center]{part title}
         \usebeamerfont{part title}\insertpart\par
       \end{beamercolorbox}
     }
+    \AtBeginPart{
+      \frame{\partpage}
+    }
+
+    % Define the section and subsection slides
     \setbeamertemplate{section page}{
       \centering
       \begin{beamercolorbox}[sep=12pt,center]{part title}
         {\usebeamerfont{section name}\usebeamercolor[fg]{section name}}
         {\usebeamerfont{section title}\insertsection\par}
       \end{beamercolorbox}
-    }
-    \AtBeginPart{
-      \frame{\partpage}
     }
     \AtBeginSubsection{
       \frame{\subsectionpage}
@@ -83,6 +76,7 @@ $endif$
   \usepackage{textcomp} % provide euro and other symbols
 \fi
 
+% Sets the slide theme. Default: Berlin %
 $if(beamer)$
 $if(theme)$
 \usetheme[$for(themeoptions)$$themeoptions$$sep$,$endfor$]{$theme$}
@@ -92,16 +86,32 @@ $else$
 \def\beamer@writeslidentry{\clearpage\beamer@notesactions}
 \makeatother
 
-% Head Line
-\setbeamercolor{headline}{bg=airforceblue!50!black,fg=white}
+% Head Line (Section bar on the top of each slide)
+\setbeamercolor{headline}{bg=main-color!50!black,fg=white}
 \setbeamertemplate{headline}{%
-  \begin{beamercolorbox}[wd=\paperwidth,ht=4ex,dp=4ex,left]{headline}
-    \hspace{6pt}
-    \usebeamerfont{headline}
-    \insertsectionhead
-    \vskip3pt
-  \end{beamercolorbox}%
-  \vspace{-10pt}
+  \begin{beamercolorbox}[wd=\paperwidth,ht=4ex,dp=0pt,left]{headline}%
+    \hspace*{6pt}\vbox to4ex{\vfil\vspace{1pt}\insertsectionhead\vfil}
+  \end{beamercolorbox}
+  }
+
+% Title of the slide
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip % Avoid a space before the box
+  \begin{beamercolorbox}[wd=\paperwidth,ht=4ex,dp=0pt,left]{frametitle}%
+    \hspace*{6pt}\vbox to4ex{\vfil\vspace{1pt}\insertframetitle\vfil}
+  \end{beamercolorbox}
+}
+
+% Foot line (Bottom part of the slide)
+\setbeamercolor{footline}{bg=main-color,fg=white}
+\setbeamertemplate{footline}{%
+  \nointerlineskip % Avoid a space before the box
+  \begin{beamercolorbox}[wd=\paperwidth,ht=4ex,dp=0pt,left]{footline}%
+    \vbox to 4ex {\vfil\vspace{1pt}%
+      \hbox to \paperwidth{%
+      \hspace{6pt}\insertshorttitle \hfill \insertauthor\hspace{6pt}}%
+      \vfil}
+  \end{beamercolorbox}
 }
 
 $endif$
@@ -115,12 +125,27 @@ $if(outertheme)$
 \useoutertheme{$outertheme$}
 $endif$
 $endif$
+
+% COLORS AND COLOR PALETTE
+\usepackage[dvipsnames]{xcolor} % Allows using colors
+
+% Color palette: Catpuccin Latte
+\definecolor{main-color}{HTML}{1e66f5} % Used in top and bottom of slides, itemize dots, and other structure
+
+% Used for highlights
+\definecolor{blue}{HTML}{1e66f5}
+\definecolor{green}{HTML}{40a02b}
+\definecolor{red}{HTML}{d20f39}
+\definecolor{gray}{HTML}{555566}
+\definecolor{lightgray}{HTML}{808080}
+
+\setbeamercolor{structure}{fg=main-color} % itemize, enumerate, etc
+
+
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-
-
-\usepackage[dvipsnames]{xcolor}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+
 \usepackage{bookmark}
 \usepackage{hyperref}
 \hypersetup{
@@ -150,6 +175,7 @@ $else$
 $endif$
 }
 
+% Sets the geometry
 $if(geometry)$
   $if(beamer)$
   \geometry{$for(geometry)$$geometry$$sep$,$endfor$}
@@ -158,24 +184,16 @@ $if(geometry)$
   $endif$
 $endif$
 
- 
+% Slide text size
+\setbeamersize{text margin left=3em, text margin right=3em}
+
+% Uses bibliography
 $if(beamer)$
 \newif\ifbibliography
 $endif$
 
-$if(listings)$
-\usepackage{listings}
-\newcommand{\passthrough}[1]{#1}
-\lstset{defaultdialect=sh}
-\lstset{framexleftmargin=0mm, frame=trBL,backgroundcolor=\color{blanchedalmond!5},numbers=left,numberstyle=\scriptsize,basicstyle=\small}
-\lstset{aboveskip=5mm,belowskip=5mm,xleftmargin=20pt,xrightmargin=5pt}
-% \lstset{prebreak={\raisebox{0ex}[0ex][0ex]}}
-% \lstset{postbreak={\raisebox{0ex}[0ex][0ex]\space}}
-\lstset{breaklines=true,breakatwhitespace=true}
-$endif$
-
-\usepackage{tabularx}
-
+% TABLES
+\usepackage{tabularx} % Helps with formatting tables
   $if(tables)$
   \usepackage{longtable,booktabs}
     $if(beamer)$
@@ -196,36 +214,26 @@ $endif$
     $endif$
   $endif$
 
-  $if(graphics)$
-  \usepackage{graphicx,grffile}
-  \makeatletter
-  \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-  \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-  \makeatother
-  % Scale images if necessary, so that they will not overflow the page
-  % margins by default, and it is still possible to overwrite the defaults
-  % using explicit options in \includegraphics[width, height, ...]{}
-  \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-  % Set default figure placement to htbp
-  \makeatletter
-  \def\fps@figure{htbp}
-  \makeatother
-  $endif$
-
-  $if(links-as-notes)$
-  % Make links footnotes instead of hotlinks:
-  \DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
-  $endif$
-
-  $if(strikeout)$
-  \usepackage[normalem]{ulem}
-  % Avoid problems with \sout in headers with hyperref
-  \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
-  $endif$
+% GRAPHICS: Helps use images in slides
+$if(graphics)$
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+$endif$
 
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 
-% Lists
+% Lists and quotes
 \providecommand{\tightlist}{}
 
 \setbeamertemplate{itemize items}[circle]
@@ -233,9 +241,6 @@ $endif$
 
 \setbeamertemplate{itemize/enumerate subbody begin}{\vspace{0cm}}
 \setbeamertemplate{itemize/enumerate subbody end}{\vspace{0cm}}
-
-% Slide size
-\setbeamersize{text margin left=3em, text margin right=3em}
 
 \addtobeamertemplate{quote begin}{\vskip1ex}{}
 
@@ -251,23 +256,13 @@ $endif$
 % Custom bibliography reference command
 \newcommand{\cit}[1]{\newline {\footnotesize \textcolor{lightgray}{(#1)}}}
 
-
-% Color palette
-\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
-\definecolor{blue}{HTML}{095086}
-\definecolor{green}{HTML}{098721}
-\definecolor{red}{HTML}{E23512}
-\definecolor{gray}{HTML}{555566}
-\definecolor{lightgray}{HTML}{808080}
-
-\setbeamercolor{structure}{fg=airforceblue} % itemize, enumerate, etc
-
 \usepackage{caption}
 \captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
 
 % Use custom font
 \usefonttheme{professionalfonts}
 
+% Load and set math fonts
 \usepackage{amssymb,amsmath} % Must be loaded before mathspec
 \usepackage{mathspec}
 \makeatletter % undo the wrong changes made by mathspec, see https://tex.stackexchange.com/questions/85696/what-causes-this-strange-interaction-between-glossaries-and-amsmath
@@ -277,11 +272,12 @@ $endif$
 
 \setmathsfont(Latin,Digits,Greek){TeX Gyre Bonum}
 
+% Set default text font
 \usepackage{fontspec}
-\setsansfont{Lato}
+\setsansfont{Roboto}
 
+% Use FontAwesome for symbols
 \usepackage{fontawesome5}
-\usepackage{annotate-equations}
 
 % Title slide template
 \setbeamertemplate{title page}{
@@ -300,34 +296,35 @@ $endif$
   }\par
 
   {\footnotesize \insertdate}  
-  }
+}
 
-  % Footnote template
-  \renewcommand\footnoterule{}
-  \setbeamertemplate{footnote}{%
-    \color{gray}
-    \vspace{1pt}
-    \makebox[1em][l]{\insertfootnotemark}\footnotesize\insertfootnotetext\par%
-  }
+% Footnote template
+\renewcommand\footnoterule{}
+\setbeamertemplate{footnote}{%
+  \color{gray}
+  \vspace{1pt}
+  \makebox[1em][l]{\insertfootnotemark}\footnotesize\insertfootnotetext\par%
+}
 
 
-  $if(numbersections)$
-  \setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
-  $else$
-  \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-  $endif$
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+$else$
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+$endif$
 
-%
-% When using babel or polyglossia with biblatex, loading csquotes is recommended 
-% to ensure that quoted texts are typeset according to the rules of your main language.
-%
+% QUOTES
 \usepackage{csquotes}
 
-% blockquote
-%
+% Blockquote colors
 \definecolor{blockquote-border}{RGB}{221,221,221}
 \definecolor{blockquote-text}{RGB}{89,89,89}
 
+% Don't italicize quotes
+\setbeamerfont{quote}{shape=\upshape}
+\setbeamercolor{quote}{fg=gray}
+
+% Blockquote box
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{positioning}
@@ -353,7 +350,7 @@ $endif$
 \setbeamercolor{block title example}{bg=green!50!black, fg=white}
 
 \setbeamercolor{block body}{bg=white}
-\setbeamercolor{block title}{bg=white,fg=airforceblue}
+\setbeamercolor{block title}{bg=white,fg=main-color}
 
 % Use ~ as negation
 \renewcommand{\lnot}{\mathord{\sim}}
@@ -369,10 +366,6 @@ $endif$
   top=0.5ex,%
   title={#1}
 }
-% Don't italicize quotes
-\setbeamerfont{quote}{shape=\upshape}
-\setbeamercolor{quote}{fg=gray}
-
 
 
   $if(beamer)$

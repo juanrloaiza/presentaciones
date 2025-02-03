@@ -1,4 +1,4 @@
-# Presentaciones
+# Presentaciones
 
 Esta es una carpeta con presentaciones académicas basadas en una plantilla personalizada de Beamer (LaTeX).
 

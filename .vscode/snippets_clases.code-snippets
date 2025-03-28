@@ -36,5 +36,13 @@
 			"\\end{tabular}"
 		],
 		"scope": "latex,markdown"
+	},
+	"Custom enumerate": {
+		"prefix": "CustomEnumerate",
+		"body": [
+			"\\begin{enumerate}",
+			"\\item[${1}] ${2} ",
+			"\\end{enumerate}"
+		]
 	}
 }

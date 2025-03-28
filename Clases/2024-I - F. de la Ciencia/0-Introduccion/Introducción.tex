@@ -1,0 +1,326 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+
+  \usepackage{pgfpages}
+  \setbeamertemplate{caption}[numbered]
+  \setbeamertemplate{caption label separator}{: }
+  \setbeamercolor{caption name}{fg=normal text.fg}
+  \beamertemplatenavigationsymbolsempty
+
+  %%
+  %%% Definition of colors
+  %%% Source: https://latexcolor.com/
+  \definecolor{blanchedalmond}{rgb}{1.0, 0.92, 0.8}
+  \definecolor{blond}{rgb}{0.98, 0.94, 0.75}
+  %%% End of definition of colors
+  %%
+
+    % Prevent slide breaks in the middle of a paragraph
+  \widowpenalties 1 10000
+  \raggedbottom
+      \setbeamertemplate{part page}{
+      \centering
+      \begin{beamercolorbox}[sep=16pt,center]{part title}
+        \usebeamerfont{part title}\insertpart\par
+      \end{beamercolorbox}
+    }
+    \setbeamertemplate{section page}{
+      \centering
+      \begin{beamercolorbox}[sep=12pt,center]{part title}
+        \usebeamerfont{section title}\insertsection\par
+      \end{beamercolorbox}
+    }
+    \setbeamertemplate{subsection page}{
+      \centering
+      \begin{beamercolorbox}[sep=8pt,center]{part title}
+        \usebeamerfont{subsection title}\insertsubsection\par
+      \end{beamercolorbox}
+    }
+    \AtBeginPart{
+      \frame{\partpage}
+    }
+    \AtBeginSection{
+      \ifbibliography
+      \else
+        \frame{\sectionpage}
+      \fi
+    }
+    \AtBeginSubsection{
+      \frame{\subsectionpage}
+    }
+  
+
+  \usepackage{lmodern}
+
+
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[]{Linux Libertine}
+
+\fi
+
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\usepackage{bookmark}
+\usepackage{hyperref}
+\hypersetup{
+  hidelinks,
+}
+
+
+  
+\newif\ifbibliography
+
+
+
+
+  
+  
+  
+  
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\usepackage{enumitem}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+    \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+  
+%
+% When using babel or polyglossia with biblatex, loading csquotes is recommended 
+% to ensure that quoted texts are typeset according to the rules of your main language.
+%
+\usepackage{csquotes}
+
+%
+% blockquote
+%
+\definecolor{blockquote-border}{RGB}{221,221,221}
+\definecolor{blockquote-text}{RGB}{89,89,89}
+
+
+%
+% Source Sans Pro as the de­fault font fam­ily
+% Source Code Pro for monospace text
+%
+% 'default' option sets the default 
+% font family to Source Sans Pro, not \sfdefault.
+%
+    
+    
+  
+  
+  
+    
+      \date{}
+      
+
+\begin{document}
+
+\hypertarget{quuxe9-es-la-ciencia}{%
+\section{¿Qué es la «ciencia»?}\label{quuxe9-es-la-ciencia}}
+
+\begin{frame}{Definición preliminar}
+\protect\hypertarget{definiciuxf3n-preliminar}{}
+La \textbf{ciencia} es una práctica humana de producción de
+conocimiento.
+
+\textless Diagrama de conocimiento vs.~conocimiento científico y otros
+conocimientos\textgreater{}
+\end{frame}
+
+\begin{frame}{Ejemplares}
+\protect\hypertarget{ejemplares}{}
+¿Qué ciencias son ejemplares canónicas de «ciencias»?
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textbf{Ciencias}
+
+\begin{itemize}
+\tightlist
+\item
+  Física
+\item
+  Biología
+\item
+  Química
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{No ciencias}
+
+\begin{itemize}
+\tightlist
+\item
+  Astrología
+\item
+  Adivinación
+\item
+  Homeopatía
+\end{itemize}
+\end{column}
+\end{columns}
+
+Hay otras disciplinas que son áreas grises.
+
+\begin{itemize}
+\tightlist
+\item
+  Ciencias sociales
+\item
+  Psicología
+\item
+  Humanidades
+\end{itemize}
+\end{frame}
+
+\begin{frame}{El problema de la demarcación}
+\protect\hypertarget{el-problema-de-la-demarcaciuxf3n}{}
+La pregunta por distinguir \textbf{ciencia} de \textbf{no-ciencia} (o
+\emph{pseudociencia}) es conocido como el \textbf{problema de la
+demarcación}.
+
+Si es posible demarcar entre ciencia y no-ciencia, debe haber algún
+\textbf{criterio de demarcación}.
+
+Criterios tradicionales de demarcación:
+
+\begin{itemize}
+\tightlist
+\item
+  Método científico
+\item
+  Verificación, confirmación
+\end{itemize}
+\end{frame}
+
+\begin{frame}{El problema de la demarcación}
+\protect\hypertarget{el-problema-de-la-demarcaciuxf3n-1}{}
+\begin{block}{Método científico}
+\protect\hypertarget{muxe9todo-cientuxedfico}{}
+Se dice que la ciencia se identifica por el uso de un \textbf{método
+científico}.
+
+Pregunta -\textgreater{} Hipótesis -\textgreater{} Observación
+-\textgreater{} Análisis -\textgreater{} Resultado
+
+Varias disciplinas ``pseudocientíficas'' cumplen con el uso de métodos
+similares:
+
+\begin{quote}
+Pregunta: ¿Qué rasgos de la personalidad tienen las personas nacidas en
+agosto? Hipótesis: Tienden a ser entusiastas y creativos Observación:
+Algunas personas nacidas en agosto son entusiastas y creativas Análisis:
+La observación concuerda con la hipótesis Resultado: La hipótesis es
+verdadera
+\end{quote}
+\end{block}
+\end{frame}
+
+\begin{frame}{El problema de la demarcación}
+\protect\hypertarget{el-problema-de-la-demarcaciuxf3n-2}{}
+\begin{block}{Método científico}
+\protect\hypertarget{muxe9todo-cientuxedfico-1}{}
+Adicionalmente, algunos elementos de las ciencias paradigmáticas no
+siguen este método.
+
+\begin{quote}
+``Todo cuerpo persevera en su estado de reposo o movimiento uniforme y
+rectilíneo a no ser que sea obligado a cambiar su estado por fuerzas
+impresas sobre él.''
+\end{quote}
+
+Es imposible obtener un sistema experimental sin ninguna fuerza.
+
+\begin{itemize}
+\tightlist
+\item
+  Como mínimo, el observador será un cuerpo imprimiendo fuerza sobre el
+  objeto en el sistema.
+\end{itemize}
+
+Consecuencia: Es imposible confirmar experimentalmente la primera ley de
+Newton.
+\end{block}
+\end{frame}
+
+\begin{frame}{El problema de la demarcación}
+\protect\hypertarget{el-problema-de-la-demarcaciuxf3n-3}{}
+\begin{block}{Verificación y confirmación}
+\protect\hypertarget{verificaciuxf3n-y-confirmaciuxf3n}{}
+Podríamos pensar que la ciencia se identifica por solo creer enunciados
+\textbf{bien confirmados} (i.e., con buena evidencia en su favor).
+
+Algunos problemas:
+
+\begin{enumerate}
+\tightlist
+\item
+  Toda la evidencia posible confirma hipótesis triviales (e.g., ``Los
+  capricornio son caprichosos o no lo son'').
+\item
+  Con frecuencia creemos hipótesis antes de que haya evidencia en su
+  favor (e.g., la relatividad no tenía todavía más evidencia en su favor
+  que las teorías anteriores).
+\item
+  Podemos interpretar la evidencia a favor de casi cualquier hipótesis
+  (e.g., epiciclos)
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{El problema de la demarcación}
+\protect\hypertarget{el-problema-de-la-demarcaciuxf3n-4}{}
+\begin{block}{¿Dónde está el problema?}
+\protect\hypertarget{duxf3nde-estuxe1-el-problema}{}
+Con todo, parte del problema parece estar en la relación que hay entre
+los \textbf{hechos} y nuestras \textbf{teorías}.
+
+\begin{itemize}
+\tightlist
+\item
+  Las teorías parecen contener expectativas sobre los hechos.
+\item
+  Los hechos parecen confirmar y falsear teorías.
+\item
+  Necesitamos confrontar los hechos para saber cuáles teorías son
+  verdaderas y cuáles son falsas.
+\end{itemize}
+
+Esto invita a algunas preguntas:
+
+\begin{itemize}
+\tightlist
+\item
+  ¿Qué son los \textbf{hechos}?
+\item
+  ¿Qué son las \textbf{teorías}?
+\item
+  ¿Cuál es su conexión? ¿Podemos revisar hechos sin teoría?
+\end{itemize}
+\end{block}
+\end{frame}
+
+\end{document}

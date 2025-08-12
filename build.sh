@@ -37,8 +37,11 @@ else
 fi
 
 echo "Building handout..."
-if [ "$DEBUG" = true ]; then
-  pandoc "$markdown_file_name" -s -t beamer --pdf-engine=xelatex --template "$TEMPLATE" --slide-level=2 -M handout=true -o "${markdown_file_name/md/handout.tex}"
-else
-  pandoc "$markdown_file_name" -s -t beamer --pdf-engine=xelatex --template "$TEMPLATE" --slide-level=2 -M handout=true -o "${markdown_file_name/md/handout.pdf}"
-fi
+
+pandoc "$markdown_file_name" -L "$biblatex_lua_filter_path" -s -t beamer --pdf-engine=xelatex --template "$TEMPLATE" --slide-level=2 -M handout=true -o "${markdown_file_name/md/handout.tex}"
+
+xelatex "${markdown_file_name/md/handout.tex}"
+
+biber "${markdown_file_name/.md/.handout}"
+
+xelatex "${markdown_file_name/md/handout.tex}"

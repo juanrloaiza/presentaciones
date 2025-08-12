@@ -2,35 +2,65 @@
 \PassOptionsToPackage{unicode$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 
-\documentclass[
-$if(fontsize)$$fontsize$, $else$9pt, $endif$
-$if(lang)$
-  $babel-lang$, 
-$endif$
-$if(papersize)$
-  $papersize$paper, 
-$endif$
-$if(beamer)$
-  ignorenonframetext,
-$if(handout)$
-  handout,
-$endif$
-$if(aspectratio)$
-  aspectratio=$aspectratio$,
-$endif$
-$endif$
-$for(classoption)$
-$classoption$$sep$,
-$endfor$
+%=========
+% BEAMER CLASS OPTIONS
+%=========
+\documentclass[%
+    $if(fontsize)$
+        $fontsize$, % Set font size from template variable
+    $else$
+        9pt,
+    $endif$
+    $if(lang)$
+        $babel-lang$, % Set language for babel
+    $endif$
+    $if(papersize)$
+        $papersize$paper, % Set paper size
+    $endif$
+    $if(beamer)$
+        ignorenonframetext,
+        $if(handout)$
+            handout, % Set handout mode
+        $endif$
+        aspectratio=$if(aspectratio)$$aspectratio$$else$169$endif$, % Set aspect ratio (default: 16:9)
+    $endif$
+    $for(classoption)$
+        $classoption$$sep$, % Additional class options
+    $endfor$
 ]{$documentclass$}
+
+% ==========
+% MAIN PACKAGES
+% ==========
+\usepackage{tikz}
+\usepackage{etoolbox}
+\usepackage{setspace}
+
+% Set the language
+$if(lang)$
+\usepackage[shorthands=off,%
+$for(babel-otherlangs)$
+$babel-otherlangs$,
+$endfor$main=$babel-lang$]{babel}
+$if(babel-newcommands)$
+  $babel-newcommands$
+$endif$
+$endif$
 
 $if(beamer)$
   \usepackage{pgfpages}
+
+  % ==========
+  % CAPTIONS FOR FIGURES
+  % ==========
   \setbeamertemplate{caption}[numbered]
   \setbeamertemplate{caption label separator}{: }
   \setbeamercolor{caption name}{fg=normal text.fg}
   \beamertemplatenavigationsymbols$if(navigation)$$navigation$$else$empty$endif$
 
+  % =========
+  % BEAMER OPTIONS
+  % =========
   $for(beameroption)$
   \setbeameroption{$beameroption$}
   $endfor$
@@ -39,8 +69,9 @@ $if(beamer)$
   \widowpenalties 1 10000
   \raggedbottom
 
+  % Templates for slide section titles
   $if(section-titles)$
-    % Design the part slide
+    % We need to design the 'part' slide, which is a special slide in beamer
     \setbeamertemplate{part page}{
       \centering
       \begin{beamercolorbox}[sep=16pt,center]{part title}
@@ -76,6 +107,10 @@ $endif$
   \usepackage{textcomp} % provide euro and other symbols
 \fi
 
+% =========
+% DEFAULT SLIDE DESIGN
+% =========
+
 % Sets the slide theme. Default: Berlin %
 $if(beamer)$
 $if(theme)$
@@ -85,6 +120,12 @@ $else$
 \makeatletter
 \def\beamer@writeslidentry{\clearpage\beamer@notesactions}
 \makeatother
+
+% Slide text size
+\setbeamersize{text margin left=3em, text margin right=3em}
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
 
 % Head Line (Section bar on the top of each slide)
 \setbeamercolor{headline}{bg=main-color!50!black,fg=white}
@@ -113,8 +154,8 @@ $else$
       \vfil}
   \end{beamercolorbox}
 }
-
 $endif$
+
 $if(colortheme)$
 \usecolortheme{$colortheme$}
 $endif$
@@ -126,7 +167,10 @@ $if(outertheme)$
 $endif$
 $endif$
 
+% ============
 % COLORS AND COLOR PALETTE
+% ============
+
 \usepackage[dvipsnames]{xcolor} % Allows using colors
 
 % Color palette: Catpuccin Latte
@@ -139,6 +183,7 @@ $endif$
 \definecolor{gray}{HTML}{555566}
 \definecolor{lightgray}{HTML}{808080}
 
+% Apply the main color to highlighted elements
 \setbeamercolor{structure}{fg=main-color} % itemize, enumerate, etc
 
 
@@ -146,6 +191,7 @@ $endif$
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 
+% Define hyperlinks and bookmarks
 \usepackage{bookmark}
 \usepackage{hyperref}
 \hypersetup{
@@ -184,15 +230,43 @@ $if(geometry)$
   $endif$
 $endif$
 
-% Slide text size
-\setbeamersize{text margin left=3em, text margin right=3em}
+% Sets spacing for columns
+\BeforeBeginEnvironment{columns}{\vspace{0.75em}} 
+\AfterEndEnvironment{columns}{\vspace{0.75em}}
+\setlength{\columnsep}{1ex}
 
-% Uses bibliography
-$if(beamer)$
-\newif\ifbibliography
-$endif$
+% ===========
+% FONTS
+% ===========
 
+% Use custom font
+\usefonttheme{professionalfonts}
+
+% Load and set math fonts
+\usepackage{amssymb,amsmath} % Must be loaded before mathspec
+\usepackage{mathspec}
+\makeatletter % undo the wrong changes made by mathspec, see https://tex.stackexchange.com/questions/85696/what-causes-this-strange-interaction-between-glossaries-and-amsmath
+\let\RequirePackage\original@RequirePackage
+\let\usepackage\RequirePackage
+\makeatother
+
+\setmathsfont(Latin,Digits,Greek){TeX Gyre Bonum}
+
+% Set default text font
+\usepackage{fontspec}
+\setsansfont{Lato}
+
+% Use FontAwesome for symbols
+\usepackage{fontawesome5}
+
+\makeatletter
+\renewcommand{\tiny}{\@setfontsize\tiny{5pt}{5pt}} % {font size}{line spacing}
+\makeatother
+
+
+% ============
 % TABLES
+% ============
 \usepackage{tabularx} % Helps with formatting tables
   $if(tables)$
   \usepackage{longtable,booktabs}
@@ -204,7 +278,6 @@ $endif$
     \makeatother
     $else$
     % Correct order of tables after \paragraph or \subparagraph
-    \usepackage{etoolbox}
     \makeatletter
     \patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
     \makeatother
@@ -214,7 +287,9 @@ $endif$
     $endif$
   $endif$
 
+% ============
 % GRAPHICS: Helps use images in slides
+% ============
 $if(graphics)$
 \usepackage{graphicx}
 \usepackage{svg}
@@ -239,12 +314,12 @@ $if(graphics)$
   \fi
 }
 \makeatother
-
 $endif$
 
-\setlength{\emergencystretch}{3em} % prevent overfull lines
 
-% Lists and quotes
+% ===========
+% LISTS
+% ===========
 \providecommand{\tightlist}{}
 
 \setbeamertemplate{itemize items}[circle]
@@ -253,96 +328,22 @@ $endif$
 \setbeamertemplate{itemize/enumerate subbody begin}{\vspace{0cm}}
 \setbeamertemplate{itemize/enumerate subbody end}{\vspace{0cm}}
 
-\addtobeamertemplate{quote begin}{\vskip1ex}{}
-
-% Set columns vertical spacing
-\makeatletter
-\newcommand{\@minipagerestore}{\setlength{\parskip}{3pt}}
-\makeatother
-
-% Paragraphs
-\setlength\parskip{0.5\baselineskip}
-\linespread{1.15}\selectfont % <---
-
-% Custom bibliography reference command
-\newcommand{\cit}[1]{\newline {\footnotesize \textcolor{lightgray}{(#1)}}}
-
-\usepackage{caption}
-\captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
-
-% Use custom font
-\usefonttheme{professionalfonts}
-
-% Load and set math fonts
-\usepackage{amssymb,amsmath} % Must be loaded before mathspec
-\usepackage{mathspec}
-\makeatletter % undo the wrong changes made by mathspec, see https://tex.stackexchange.com/questions/85696/what-causes-this-strange-interaction-between-glossaries-and-amsmath
-\let\RequirePackage\original@RequirePackage
-\let\usepackage\RequirePackage
-\makeatother
-
-\setmathsfont(Latin,Digits,Greek){TeX Gyre Bonum}
-
-% Set default text font
-\usepackage{fontspec}
-\setsansfont{Lato}
-
-% Use FontAwesome for symbols
-\usepackage{fontawesome5}
-
-% Title slide template
-\setbeamertemplate{title page}{
-  \setstretch{1.5}
-  $if(course)$
-  $course$\\
-  \vspace{6pt}
-  $endif$
-  {\LARGE\bfseries
-      \inserttitle
-  }\par\vskip1em
-  {\large
-      \insertauthor
-  }\par
-  {\small 
-  $if(affiliation)$
-  $affiliation$
-  $else$
-  Departamento de Filosofía\\
-  Universidad Alberto Hurtado
-  $endif$
-  }\par
-
-  {\footnotesize \insertdate}  
-}
-
-% Footnote template
-\renewcommand\footnoterule{}
-\setbeamertemplate{footnote}{%
-  \color{gray}
-  \vspace{1pt}
-  \makebox[1em][l]{\insertfootnotemark}\footnotesize\insertfootnotetext\par%
-}
-
-
-$if(numbersections)$
-\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
-$else$
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-$endif$
-
+% ===========
 % QUOTES
+% ===========
 \usepackage{csquotes}
 
-% Blockquote colors
-\definecolor{blockquote-border}{RGB}{221,221,221}
-\definecolor{blockquote-text}{RGB}{89,89,89}
+\addtobeamertemplate{quote begin}{\vskip1ex}{}
 
 % Don't italicize quotes
 \setbeamerfont{quote}{shape=\upshape}
 \setbeamercolor{quote}{fg=gray}
 
+% Blockquote colors
+\definecolor{blockquote-border}{RGB}{221,221,221}
+\definecolor{blockquote-text}{RGB}{89,89,89}
+
 % Blockquote box
-\usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{positioning}
 \usetikzlibrary{decorations.pathreplacing}
@@ -369,10 +370,114 @@ $endif$
 \setbeamercolor{block body}{bg=white}
 \setbeamercolor{block title}{bg=white,fg=main-color}
 
+% Paragraphs
+\setlength\parskip{0.5\baselineskip}
+\linespread{1.15}\selectfont % <---
+
+% ===========
+% BIBLIOGRAPHY
+% Defaults:
+% - Style: APA
+% - No DOI
+% - No URL
+% ===========
+
+$if(bibliography)$
+\usepackage[
+  $if(bibstyle)$
+  style=$bibstyle$,
+  $else$
+  style=apa,
+  apamaxprtauth=2,
+  $endif$
+  $if(biboptions.doi)$
+  doi=$biboptions.doi$,
+  $else$
+  doi=false,
+  $endif$
+  $if(biboptions.url)$
+  url=$biboptions.url$,
+  $else$
+  url=false,
+  $endif$
+  backend=biber,
+  $for(biblatexoptions)$
+  ,$biblatexoptions$
+  $endfor$
+]{biblatex}
+
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+$endif$
+
+\renewcommand*{\bibfont}{\tiny} % or \tiny, \scriptsize, etc.
+\setlength{\bibhang}{0.5em} % Adjust this value (default is usually 1.5em)
+
+
+% Custom bibliography reference command, we use it sometimes in class
+\newcommand{\cit}[1]{\newline {\footnotesize \textcolor{lightgray}{(#1)}}}
+
+% Define bibliography appearance
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamercolor{bibliography entry author}{parent=palette primary}  
+\setbeamercolor{bibliography entry title}{fg=black}  
+\setbeamercolor{bibliography entry location}{fg=black}  
+\setbeamercolor{bibliography entry note}{fg=black}  
+
+
+%\usepackage{caption}
+%\captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
+
+
+% Title slide template
+\setbeamertemplate{title page}{
+  \setstretch{1}
+  $if(course)$
+  $course$\\
+  \vspace{6pt}
+  $endif$
+  {\LARGE\bfseries
+      \inserttitle
+  }\par\vskip1em
+  {\large
+      \insertauthor
+  }\par
+  {\small 
+  $if(affiliation)$
+  $affiliation$
+  $else$
+  Departamento de Filosofía\\
+  Universidad Alberto Hurtado
+  $endif$
+  }\par
+
+  {\footnotesize \insertdate}  
+}
+
+% Footnote template
+\renewcommand{\thefootnote}{\color{lightgray}[\arabic{footnote}]} 
+\renewcommand\footnoterule{}
+\setbeamertemplate{footnote}{%
+   \parindent 0em%              % Remove indentation
+  \color{lightgray}%
+  \tiny
+  \makebox[2em][l]{\normalfont\thefootnote}\insertfootnotetext\par%
+}
+
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+$else$
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+$endif$
+
+
 % Use ~ as negation
 \renewcommand{\lnot}{\mathord{\sim}}
 
-% Define bordered boxes
+% ===========
+% CUSTOM COLORED BOXES
+% ===========
 \usepackage[most]{tcolorbox}
 
 \newtcolorbox{alertbox}[1]{%
@@ -384,22 +489,6 @@ $endif$
   title={#1}
 }
 
-
-  $if(beamer)$
-  $else$
-    $if(block-headings)$
-    % Make \paragraph and \subparagraph free-standing
-    \ifx\paragraph\undefined\else
-      \let\oldparagraph\paragraph
-      \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-    \fi
-    \ifx\subparagraph\undefined\else
-      \let\oldsubparagraph\subparagraph
-      \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-    \fi
-    $endif$
-  $endif$
-
   $if(pagestyle)$
   \pagestyle{$pagestyle$}
   $endif$
@@ -407,74 +496,65 @@ $endif$
   $for(header-includes)$
   $header-includes$
   $endfor$
+ 
 
-  $if(lang)$
-    \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
-  
-    $if(babel-newcommands)$
-      $babel-newcommands$
-    $endif$
 
-  $endif$
 
-  $if(natbib)$
-  \usepackage[$natbiboptions$]{natbib}
-  \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
-  $endif$
-  $if(biblatex)$
-  \usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
-    $for(bibliography)$
-    \addbibresource{$bibliography$}
-    $endfor$
-  $endif$
-
-  $if(title)$
-  \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
-  $endif$
-  $if(subtitle)$
-    $if(beamer)$
-    $else$
-    \usepackage{etoolbox}
-    \makeatletter
-    \providecommand{\subtitle}[1]{% add subtitle to \maketitle
-      \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-    }
-    \makeatother
-    $endif$
-  \subtitle{$subtitle$}
-  $endif$
-  $if(author)$
-  \author{$for(author)$$author$$sep$ \and $endfor$}
-  $else$
-  \author{Juan R. Loaiza}
-  $endif$
-\date{$date$}
-$if(beamer)$
-  $if(institute)$
-  \institute{$for(institute)$$institute$$sep$ \and $endfor$}
-  $else$
-  \institute{Departamento de Filosofía · Universidad Alberto Hurtado}
-  $endif$
-  $if(titlegraphic)$
-  \titlegraphic{\includegraphics{$titlegraphic$}}
-  $endif$
-  $if(logo)$
-  \logo{\includegraphics{$logo$}}
-  $endif$
+% ===========
+% PRESENTATION TITLE AND METADATA
+% ===========
+$if(title)$
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
 
-\usepackage{setspace}
+$if(subtitle)$
+  \makeatletter
+  \providecommand{\subtitle}[1]{% add subtitle to \maketitle
+    \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+  }
+\subtitle{$subtitle$}
+$endif$
 
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$else$
+\author{Juan R. Loaiza}
+$endif$
+
+
+\date{$date$}
+
+$if(institute)$
+\institute{$for(institute)$$institute$$sep$ \and $endfor$}
+$else$
+\institute{Departamento de Filosofía · Universidad Alberto Hurtado}
+$endif$
+$if(titlegraphic)$
+\titlegraphic{\includegraphics{$titlegraphic$}}
+$endif$
+$if(logo)$
+\logo{\includegraphics{$logo$}}
+$endif$
+
+% ===========
+% DOCUMENT START
+% ===========
 \begin{document}
+
+% Frontmatter
 $if(has-frontmatter)$
 \frontmatter
 $endif$
+
+% Title page
 $if(title)$
 $if(beamer)$
 \frame{\titlepage}
 $else$
 \maketitle
 $endif$
+
+
 $if(abstract)$
 \begin{abstract}
   $abstract$
@@ -484,8 +564,9 @@ $endif$
 
 $for(include-before)$
 $include-before$
-
 $endfor$
+
+% Table of contents, lists of tables and figures
 $if(toc)$
 $if(toc-title)$
 \renewcommand*\contentsname{$toc-title$}
@@ -507,55 +588,59 @@ $else$
   }
 $endif$
 $endif$
+
 $if(lot)$
 \listoftables
 $endif$
+
 $if(lof)$
 \listoffigures
 $endif$
+
+% Set line spacing for main content
 \setstretch{$if(linestretch)$$linestretch$$else$1.15$endif$}
+
+% Main content
 $if(has-frontmatter)$
 \mainmatter
 $endif$
+
 $body$
 
 $if(has-frontmatter)$
 \backmatter
 $endif$
-$if(natbib)$
+
+
+\begin{frame}
+
+    \centering
+    {\Large
+    ¡Muchas gracias!}
+
+      \includegraphics{qr_juanrloaizacom.pdf}
+
+    jloaiza@uahurtado.cl
+
+    www.juanrloaiza.com
+
+    www.santiagomindandcognition.cl
+
+\end{frame}
+
+% Bibliography slide
 $if(bibliography)$
-$if(biblio-title)$
-$if(has-chapters)$
-\renewcommand\bibname{$biblio-title$}
-$else$
-\renewcommand\refname{$biblio-title$}
-$endif$
-$endif$
-$if(beamer)$
-\begin{frame}[allowframebreaks]{$biblio-title$}
-  \bibliographytrue
-  $endif$
-  \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
-  $if(beamer)$
+\section{}
+\begin{frame}[allowframebreaks]
+\frametitle{Bibliografía}
+\printbibliography
 \end{frame}
 $endif$
 
-$endif$
-$endif$
-$if(biblatex)$
-$if(beamer)$
-\begin{frame}[allowframebreaks]{$biblio-title$}
-  \bibliographytrue
-  \printbibliography[heading=none]
-\end{frame}
-$else$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-$endif$
 
-$endif$
 $for(include-after)$
 $include-after$
-
 $endfor$
+
 \end{document}
 

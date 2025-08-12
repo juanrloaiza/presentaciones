@@ -1,2 +1,13 @@
 .DS_Store
 Archive/
+
+*.aux
+*.bbl
+*.bcf
+*.log
+*.nav
+*.run.xml
+*.toc
+*.snm
+*.blg
+*.sync-conflict*

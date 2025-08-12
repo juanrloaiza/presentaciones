@@ -1,0 +1,18 @@
+{
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "autoClearConsole": true,
+                "match": "\\.(md)$",  // Adjust file pattern as needed
+                "cmd": "cd '${workspaceFolder}' && ./build.sh '${relativeFile}'",
+                "runIn": "terminal",
+                "showElapsed": true
+            }
+        ]
+    },
+    "markdownlint.config": {
+        "no-alt-text": false,
+        "single-h1": false,
+        "no-emphasis-as-heading": false
+    }
+}

@@ -28,6 +28,30 @@
 		],
 		"scope": "markdown"
 	},
+	"Three-columns Markdown": {
+		"prefix": "3-col",
+		"body": [
+			":::: {.columns .onlytextwidth}",
+			"::: {.column}",
+			"",
+			"$1",
+			"",
+			":::",
+			"::: {.column}",
+			"",
+			"$2",
+			"",
+			":::",
+			"::: {.column}",
+			"",
+			"$3",
+			"",
+			":::",
+			"::::"
+		],
+		"description": "Insert a three-column layout in Markdown (Pandoc-style)",
+		"scope": "markdown"
+	},
 	"LaTeX Table": {
 		"prefix": "ltable",
 		"body": [
@@ -44,5 +68,22 @@
 			"\\item[${1}] ${2} ",
 			"\\end{enumerate}"
 		]
+	},
+	"Centered LaTeX Block": {
+		"prefix": "centered",
+		"body": [
+			"\\begin{center}",
+			"    $1",
+			"\\end{center}"
+		],
+		"description": "Insert a centered LaTeX environment",
+		"scope": "tex,markdown"
+	},
+	"Biblatex Citation Commands": {
+		"prefix": "cite",
+		"body": [
+			"${1|\\cite,\\textcite,\\parencite,\\footcite|}${2|,p, t, a, s|}${3:key}$0"
+		],
+		"description": "Insert various biblatex citation commands"
 	}
 }

@@ -611,14 +611,37 @@ $if(has-frontmatter)$
 \backmatter
 $endif$
 
-
+\section{}
 \begin{frame}
 
     \centering
-    {\Large
-    ¡Muchas gracias!}
+    {\LARGE
+    \textbf{¡Muchas gracias!}}
+    \vspace{-1em}
 
-      \includegraphics{qr_juanrloaizacom.pdf}
+    \begin{minipage}[t]{0.7\textwidth}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        \centering
+        {
+      \includegraphics[height=10em]{qr_juanrloaizacom.pdf}
+
+      Sitio web personal
+}
+      \end{column}
+
+      \begin{column}{0.5\textwidth}
+        \centering
+        {
+      \includegraphics[height=10em]{linkppt.pdf}
+
+      Presentación
+}
+      \end{column}
+    \end{columns}
+  \end{minipage}
+
+    \setstretch{1}
 
     jloaiza@uahurtado.cl
 
@@ -630,7 +653,6 @@ $endif$
 
 % Bibliography slide
 $if(bibliography)$
-\section{}
 \begin{frame}[allowframebreaks]
 \frametitle{Bibliografía}
 \printbibliography

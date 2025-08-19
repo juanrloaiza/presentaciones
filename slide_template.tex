@@ -382,7 +382,7 @@ $endif$
 % - No URL
 % ===========
 
-$if(bibliography)$
+
 \usepackage[
   $if(bibstyle)$
   style=$bibstyle$,
@@ -406,6 +406,7 @@ $if(bibliography)$
   $endfor$
 ]{biblatex}
 
+$if(bibliography)$
 $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
@@ -611,13 +612,27 @@ $if(has-frontmatter)$
 \backmatter
 $endif$
 
+$if(thankyou)$
+% Thank you slide
+% This slide is used to thank the audience at the end of the presentation.
+% It can include links to personal websites or the presentation itself.
 \section{}
 \begin{frame}
 
     \centering
     {\LARGE
     \textbf{¡Muchas gracias!}}
-    \vspace{-1em}
+    \vspace{-1em
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
 
     \begin{minipage}[t]{0.7\textwidth}
     \begin{columns}
@@ -650,6 +665,7 @@ $endif$
     www.santiagomindandcognition.cl
 
 \end{frame}
+$endif$
 
 % Bibliography slide
 $if(bibliography)$

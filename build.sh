@@ -24,24 +24,29 @@ biblatex_lua_filter_path=$(realpath beamer-biblatex.lua)
 cd "$markdown_file_folder"
 
 echo "Building slides..."
-if [ "$DEBUG" = true ]; then
-  pandoc "$markdown_file_name" -L "$biblatex_lua_filter_path" -s -t beamer --pdf-engine=xelatex --template "$TEMPLATE" --slide-level=2 -o "${markdown_file_name/md/tex}"
-else
-  pandoc "$markdown_file_name" -L "$biblatex_lua_filter_path" -s -t beamer --pdf-engine=xelatex --template "$TEMPLATE" --slide-level=2 -o "${markdown_file_name/md/tex}"
 
-  xelatex "${markdown_file_name/md/tex}"
+slides_file_name="${markdown_file_name/md/tex}"
+handout_file_name="${markdown_file_name/md/handout.tex}"
+
+if [ "$DEBUG" = true ]; then
+  pandoc "$markdown_file_name" -L "$biblatex_lua_filter_path" -s -t beamer --pdf-engine=xelatex --template "$TEMPLATE" --slide-level=2 -o "$slides_file_name"
+else
+  pandoc "$markdown_file_name" -L "$biblatex_lua_filter_path" -s -t beamer --pdf-engine=xelatex --template "$TEMPLATE" --slide-level=2 -o "$slides_file_name"
+
+  xelatex "$slides_file_name"
 
   biber "${markdown_file_name/.md/}"
 
-  xelatex "${markdown_file_name/md/tex}"
+  tex-fmt "$slides_file_name"
+  xelatex "$slides_file_name"
 fi
 
 echo "Building handout..."
 
-pandoc "$markdown_file_name" -L "$biblatex_lua_filter_path" -s -t beamer --pdf-engine=xelatex --template "$TEMPLATE" --slide-level=2 -M handout=true -o "${markdown_file_name/md/handout.tex}"
+pandoc "$markdown_file_name" -L "$biblatex_lua_filter_path" -s -t beamer --pdf-engine=xelatex --template "$TEMPLATE" --slide-level=2 -M handout=true -o "$handout_file_name"
 
-xelatex "${markdown_file_name/md/handout.tex}"
+xelatex "$handout_file_name"
 
 biber "${markdown_file_name/.md/.handout}"
 
-xelatex "${markdown_file_name/md/handout.tex}"
+xelatex "$handout_file_name"

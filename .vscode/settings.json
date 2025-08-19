@@ -15,5 +15,6 @@
         "single-h1": false,
         "no-emphasis-as-heading": false,
         "no-duplicate-heading": false
-    }
+    },
+    "latex-workshop.formatting.latex": "tex-fmt"
 }

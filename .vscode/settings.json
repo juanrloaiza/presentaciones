@@ -13,6 +13,7 @@
     "markdownlint.config": {
         "no-alt-text": false,
         "single-h1": false,
-        "no-emphasis-as-heading": false
+        "no-emphasis-as-heading": false,
+        "no-duplicate-heading": false
     }
 }

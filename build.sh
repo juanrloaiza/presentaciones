@@ -27,26 +27,34 @@ echo "Building slides..."
 
 slides_file_name="${markdown_file_name/md/tex}"
 handout_file_name="${markdown_file_name/md/handout.tex}"
+output_file_name="${markdown_file_name/md/pdf}"
+output_handout_file_name="${markdown_file_name/md/handout.pdf}"
 
 if [ "$DEBUG" = true ]; then
   pandoc "$markdown_file_name" -L "$biblatex_lua_filter_path" -s -t beamer --pdf-engine=xelatex --template "$TEMPLATE" --slide-level=2 -o "$slides_file_name"
 else
   pandoc "$markdown_file_name" -L "$biblatex_lua_filter_path" -s -t beamer --pdf-engine=xelatex --template "$TEMPLATE" --slide-level=2 -o "$slides_file_name"
 
-  xelatex "$slides_file_name"
+  mkdir -p ".output"
+
+  xelatex -output-directory=".output/" "$slides_file_name" 
 
   biber "${markdown_file_name/.md/}"
 
   tex-fmt "$slides_file_name"
-  xelatex "$slides_file_name"
+  xelatex -output-directory=".output/" "$slides_file_name" 
+
+  mv ".output/$output_file_name" .
 fi
 
 echo "Building handout..."
 
 pandoc "$markdown_file_name" -L "$biblatex_lua_filter_path" -s -t beamer --pdf-engine=xelatex --template "$TEMPLATE" --slide-level=2 -M handout=true -o "$handout_file_name"
 
-xelatex "$handout_file_name"
+xelatex -output-directory=".output/" "$handout_file_name" 
 
 biber "${markdown_file_name/.md/.handout}"
 
-xelatex "$handout_file_name"
+xelatex -output-directory=".output/" "$handout_file_name" 
+
+mv ".output/$output_handout_file_name" .

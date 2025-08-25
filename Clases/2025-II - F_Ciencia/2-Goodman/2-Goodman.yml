@@ -1,0 +1,41 @@
+Quine1969:
+  type: anthos
+  title: Natural Kinds
+  author: Quine, Willard Van Orman
+  date: 1969
+  editor: Schwartz, Stephen P.
+  page-range: 155-175
+  abstract: "Book: 1977"
+  parent:
+    type: anthology
+    title: Naming, Necessity, and Natural Kinds
+    publisher:
+      name: Cornell University Press
+      location: Ithaca, NY
+Kuhn1962:
+  type: book
+  title: La estructura de las revoluciones científicas
+  author: Kuhn, Thomas S.
+  date: 2010
+  affiliated:
+    names: Solís Santos, Carlos
+    role: translator
+  publisher:
+    name: Fondo de Cultura Económica
+    location: México, D.F.
+  serial-number:
+    isbn: 978-607-16-0825-3
+  abstract: Cuando los paradigmas científicos dejan de dar respuesta a los problemas que les atañen, ocurren rupturas violentas en las que la ciencia se revoluciona, destruye los paradigmas desgastados y los sustituye con otros nuevos. Thomas S. Kuhn analiza en esta obra "el comportamiento de las comunidades científicas encargadas de seleccionar el modo más apto de practicar la ciencia futura" tras esos momentos de crisis
+Bloor2003:
+  type: book
+  title: Conocimiento e imaginario social
+  author: Bloor, David
+  date: 2003
+  affiliated:
+    names:
+      - Lizcano, Emmánuel
+      - Blanco, Rubén
+    role: translator
+  publisher:
+    name: Gedisa
+    location: Barcelona

@@ -10,12 +10,12 @@
 == ¿Cómo se obtiene el conocimiento científico?
 
 Buena parte de nuestro conocimiento científico se obtiene por la
-observación.
+observación. #pause
 
 - Mediciones
-- Experimentos
+- Experimentos #pause
 
-Cuando observamos el mundo, lo hacemos es momentos finitos.
+Cuando observamos el mundo, lo hacemos es momentos finitos. #pause
 
 - No podemos observar todos los objetos ni eventos existentes en la
   historia.
@@ -23,34 +23,34 @@ Cuando observamos el mundo, lo hacemos es momentos finitos.
 == Inducción en la ciencia
 
 A pesar de que la ciencia trabaja con observaciones limitadas, sus
-enunciados pretenden *generalidad*.
+enunciados pretenden *generalidad*. #pause
 
 Las inferencias que nos permiten pasar de enunciados limitados a
 conclusiones generales se conocen como *inferencias inductivas* o
-*inducción*.
+*inducción*. #pause
 
 La inducción es, entonces, fundamental para el conocimiento científico.
 
 == El problema de la inducción
 
 El #strong[problema de la inducción] consiste en el problema de ofrecer
-una teoría de la #strong[justificación] para inferencias inductivas.
+una teoría de la #strong[justificación] para inferencias inductivas. #pause
 
 Podemos asumir que existen inferencias inductivas justificadas e
-injustificadas.
+injustificadas. #pause
 
 #centered-box[
   #set text(0.9em)
   #columns(2)[
     Todos los días en el pasado ha salido el sol.
 
-    Por lo tanto, mañana saldrá el sol.
+    Por lo tanto, mañana saldrá el sol. #pause
 
     #colbreak()
 
     Nunca al pasarme un semáforo en rojo me he accidentado.
 
-    Por lo tanto, si me paso este semáforo en rojo, no me accidentaré.
+    Por lo tanto, si me paso este semáforo en rojo, no me accidentaré. #pause
   ]
 ]
 
@@ -71,20 +71,20 @@ injustificadas.
 == Definiciones
 
 Un argumento es un #strong[conjunto de proposiciones], tales que unas
-se infieren de otras.
+se infieren de otras. #pause
 
 #definition(
   "Argumento",
   [Conjunto de proposiciones en el que una (llamada "conclusión") se
     *infiere* de otras (llamadas las "premisas").],
-)
+) #pause
 
-Un buen argumento debe satisfacer dos condiciones:
+Un buen argumento debe satisfacer dos condiciones: #pause
 
 #centered-box[
   #columns(2)[
     *Validez*\
-    Su conclusión *se sigue* de las premisas.
+    Su conclusión *se sigue* de las premisas. #pause
 
     #colbreak()
 
@@ -95,7 +95,7 @@ Un buen argumento debe satisfacer dos condiciones:
 == Ejemplos
 
 "Santiago es la capital de Chile. Yo vivo en Santiago, así que yo vivo
-en Chile."
+en Chile." #pause
 
 #pad(left: 1em)[
   #grid(
@@ -105,32 +105,32 @@ en Chile."
     "(P2)", "Yo vivo en Santiago.",
     "(C)", "Yo vivo en Chile.",
   )
-]
+] #pause
 
 Este argumento es #strong[válido], pues es imposible que sus premisas
-sean verdaderas mientras la conclusión sea falsa.
+sean verdaderas mientras la conclusión sea falsa. #pause
 
 También es #strong[sólido], pues sus premisas son verdaderas.
 
 ---
 
 "Montevideo es la capital de Uruguay. Yo vivo en Montevideo, así que
-vivo en Uruguay."
+vivo en Uruguay." #pause
 
 #standard-argument(
   "Montevideo es la capital de Uruguay.",
   "Yo vivo en Montevideo.",
   "Yo vivo en Uruguay.",
-)
+) #pause
 
-Este argumento es *válido*, pero no es *sólido*.
+Este argumento es *válido*, pero no es *sólido*. #pause
 
 - Su conclusión se sigue (necesariamente) de las premisas, pero contiene
   *premisas falsas* (específicamente (P2)).
 
 ---
 
-"Si soy rico, seré muy feliz. No soy rico, así que no soy feliz."
+"Si soy rico, seré muy feliz. No soy rico, así que no soy feliz." #pause
 
 #pad(left: 1em)[
   #grid(
@@ -140,11 +140,11 @@ Este argumento es *válido*, pero no es *sólido*.
     "(P2)", "No soy rico.",
     "(C)", "No soy feliz.",
   )
-]
-Este argumento es *inválido*, pues su conclusión *no se
-  sigue* de las premisas.
+] #pause
 
-- Ser rico puede ser *suficiente* pero no *necesario* para ser feliz.
+Este argumento es *inválido*, pues su conclusión *no se sigue* de las premisas. #pause
+
+- Ser rico puede ser *suficiente* pero no *necesario* para ser feliz. #pause
 
 Si el argumento es *inválido*, automáticamente *no es sólido*.
 
@@ -154,7 +154,7 @@ Si el argumento es *inválido*, automáticamente *no es sólido*.
 
 == Argumentos deductivos e inductivos
 
-Hay dos tipos de argumentos:
+Hay dos tipos de argumentos: #pause
 
 #columns(2)[
   *Deductivos*
@@ -162,6 +162,8 @@ Hay dos tipos de argumentos:
   Su conclusión se sigue *necesariamente* de las premisas.
 
   - "Todos los tigres tienen rayas. Tony es un tigre, así que Tony tiene rayas."
+
+  #pause
 
   #colbreak()
 
@@ -187,48 +189,48 @@ Entre los argumentos válidos, ¿cuáles son sólidos y cuáles no lo son?
 == El problema según Hume
 
 La formulación tradicional del problema de la inducción de atribuye a
-Hume.
+Hume. #pause
 
-- Todo razonamiento se divide en razonamiento sobre *relaciones de ideas* (deductivo) o *cuestiones de hecho* (inductivo).
-- Nuestro conocimiento científico viene por la experiencia, i.e., razonamiento sobre *cuestiones de hecho*.
+- Todo razonamiento se divide en razonamiento sobre *relaciones de ideas* (deductivo) o *cuestiones de hecho* (inductivo).  #pause
+- Nuestro conocimiento científico viene por la experiencia, i.e., razonamiento sobre *cuestiones de hecho*. #pause
 - Las conclusiones en inferencias por cuestiones de hecho *no se siguen necesariamente*.
 
 == El problema según Hume
 
-Todo razonamiento inductivo, según Hume, tiene la forma:
+Todo razonamiento inductivo, según Hume, tiene la forma: #pause
 
 #standard-argument(
   "He observado que en el pasado las cosas han sido así o asá.",
   [*El futuro se parecerá al pasado.*],
   "En el futuro las cosas serán así o asá.",
-)
+) #pause
 
-¿Qué justifica creer en (P2)?
+¿Qué justifica creer en (P2)? #pause
 
-Segúgn Hume, formamos ciertos *hábitos* con mayor o menor fuerza.
+Segúgn Hume, formamos ciertos *hábitos* con mayor o menor fuerza. #pause
 
 - ¿Es esta una respuesta o una concesión?
 
 == Del viejo al nuevo problema de la inducción
 
 Goodman nota que Hume formuló el problema clásico, pero sostiene que el
-problema merece una reformulación.
+problema merece una reformulación. #pause
 
-- Según Hume, lo que justifica la inferencia inductiva es la fuerza del *hábito*.
-- ¿Pero qué explica que ciertos hábitos se formen y no otros?
+- Según Hume, lo que justifica la inferencia inductiva es la fuerza del *hábito*. #pause
+- ¿Pero qué explica que ciertos hábitos se formen y no otros? #pause
 
-Hume considera dos alternativas para justificar (P2):
+Hume considera dos alternativas para justificar (P2): #pause
 
-- Las inferencias inductivas se justifican sobre inferencias *deductivas*.
+- Las inferencias inductivas se justifican sobre inferencias *deductivas*. #pause
 - Hay algo *extralógico* que justifica estas inferencias.
 
 == Justificación de inferencias deductivas
 
-Comencemos por qué justifica las inferencias *deductivas*.
+Comencemos por qué justifica las inferencias *deductivas*. #pause
 
-- Una inferencia deductiva es válida si cumple con las *reglas de la lógica*.
+- Una inferencia deductiva es válida si cumple con las *reglas de la lógica*. #pause
 
-¿De dónde salen las *reglas de la lógica*? ¿Qué las justifica?
+¿De dónde salen las *reglas de la lógica*? ¿Qué las justifica? #pause
 
 #columns(2)[
   Hay reglas que podemos demostrar sobre la base de otras reglas.
@@ -241,6 +243,7 @@ Comencemos por qué justifica las inferencias *deductivas*.
       $P or Q; not P tack.r Q$, [*Silogismo disyuntivo*],
     )]
 
+  #pause
   #colbreak()
 
   Hay reglas que debemos asumir como *básicas*.
@@ -256,11 +259,11 @@ Comencemos por qué justifica las inferencias *deductivas*.
 
 == Las bases de la lógica
 
-Un proyecto a comienzos de siglo XX consistía en buscar el número *mínimo* de reglas que debemos asumir como básicas.
+Un proyecto a comienzos de siglo XX consistía en buscar el número *mínimo* de reglas que debemos asumir como básicas. #pause
 
-- Por ejemplo, no tenemos que admitir $M T$ como regla básica, pero sí $M P$.
+- Por ejemplo, no tenemos que admitir $M T$ como regla básica, pero sí $M P$. #pause
 
-Este proyecto buscaba formular *axiomas* para la lógica (proposicional o de primer orden).
+Este proyecto buscaba formular *axiomas* para la lógica (proposicional o de primer orden). #pause
 
 #align(center)[
   #set text(0.9em)
@@ -273,24 +276,24 @@ Este proyecto buscaba formular *axiomas* para la lógica (proposicional o de pri
 ]
 == Hacia una lógica inductiva
 
-¿Podemos hacer algo similar con las inferencias inductivas?
+¿Podemos hacer algo similar con las inferencias inductivas? #pause
 
-- Podríamos demostrarlas a partir de reglas deductivas con algún principio adicional.
+- Podríamos demostrarlas a partir de reglas deductivas con algún principio adicional. #pause
 
 El intento más notable de formular una lógica inductiva se debe a Rudolf
-Carnap.
+Carnap. #pause
 
-- Lógica deductiva junto con cálculo de probabilidades.
-- *Fundamentos lógicos de la probabilidad* (1950)
+- Lógica deductiva junto con cálculo de probabilidades. #pause
+- *Fundamentos lógicos de la probabilidad* (1950) #pause
 - Distinción entre probabilidad epistémica y estadística.
 
 == Reglas de inferencia y prácticas deductivas
 
-Goodman nota que si bien la axiomática es interesante, necesitamos primero *ejemplares* de inferencias *aceptables e  inaceptables*.
+Goodman nota que si bien la axiomática es interesante, necesitamos primero *ejemplares* de inferencias *aceptables e  inaceptables*. #pause
 
 #quote(block: true)[
-  Los principios de inferencia deductiva se justifican por su *conformidad* con la *práctica deductiva aceptada*. Su validez depende de su concordancia con las inferencias deductivas particulares que *efectivamente hacemos* y sancionamos. Si una regla da lugar a inferencias inaceptables, la desechamos como inválida. La justificación de reglas generales se deriva, así, a partir de juicios de rechazo o aceptación de inferencias deductivas particulares.
-  (p. 100, énfasis propio)
+  Los principios de inferencia deductiva se justifican por su *conformidad* con la *práctica deductiva aceptada*.  #pause Su validez depende de su concordancia con las inferencias deductivas particulares que *efectivamente hacemos* y sancionamos.  #pause Si una regla da lugar a inferencias inaceptables, la desechamos como inválida. La justificación de reglas generales se deriva, así, a partir de juicios de rechazo o aceptación de inferencias deductivas particulares.
+  (p. 100, énfasis propio)  #pause
 ]
 
 Partimos de ejemplares claros, formulamos reglas y axiomas, y revisamos
@@ -298,29 +301,25 @@ casos grises.
 
 ---
 
-Lo mismo ocurre con las inferencias inductivas.
+Lo mismo ocurre con las inferencias inductivas. #pause
 
 #quote(block: true)[
-  Todo esto se aplica igualmente bien a la inducción. También una
-  inferencia inductiva se justifica por conformidad con reglas generales,
-  y una regla general por conformidad con inferencias inductivas
-  aceptadas. (p.~100 énfasis propio)
+  Todo esto se aplica igualmente bien a la inducción. #pause También una inferencia inductiva se justifica por conformidad con reglas generales, y una regla general por conformidad con inferencias inductivas aceptadas. (p. 100, énfasis propio)
 ]
 
-Necesitamos entonces una idea clara de *inferencia inductiva
-  válida/inválida* para formular una lógica de la inducción.
+Necesitamos entonces una idea clara de *inferencia inductiva válida/inválida* para formular una lógica de la inducción. #pause
 
 - ¿Sobre qué principios distinguimos inferencias inductivas válidas e inválidas?
 
 == El problema de la confirmación
 
-Una manera inicial de ver el problema es como uno de *confirmación*.
+Una manera inicial de ver el problema es como uno de *confirmación*. #pause
 
 #grid(columns: 2)[
-  - Una inferencia inductiva de un cuerpo de evidencia ($e$) a una hipótesis ($H$) es válida si la evidencia _apoya_ la hipótesis.
-  - Un enunciado $e$ apoya la hipótesis $H$ si \ $H arrow e$ ($H$ implica lógicamente  $e$).
+  - Una inferencia inductiva de un cuerpo de evidencia ($e$) a una hipótesis ($H$) es válida si la evidencia _apoya_ la hipótesis. #pause
+  - Un enunciado $e$ apoya la hipótesis $H$ si \ $H arrow e$  #pause ($H$ implica lógicamente  $e$). #pause
 
-  Bastaría con saber qué consecuencias lógicas tendría $H$ para sabe qué evidencia la confirma.
+  Bastaría con saber qué consecuencias lógicas tendría $H$ para sabe qué evidencia la confirma. #pause
 ][
   #example[
     Encontrar un cuervo negro $a$ apoya la hipótesis:
@@ -337,27 +336,27 @@ Una manera inicial de ver el problema es como uno de *confirmación*.
 
 == Problemas con la definición ingenua
 
-El problema con la definición anterior es que si es correcta, *todo  enunciado confirma cualquier otro*.
+El problema con la definición anterior es que si es correcta, *todo  enunciado confirma cualquier otro*. #pause
 
 #grid(columns: (40%, 60% - 1em), rows: 1, gutter: 1em)[
-  + Consideremos un enunciado $S_1$.
-  + $S_1$ es una consecuencia de cualquier enunciado $S_1 and phi.alt$.
-  + Entonces, $S_1$ confirma $S_1 and phi.alt$.
-  + $phi.alt$ es una consecuencia de $S_1 and phi.alt$
-  + #text(fill: red)[$phi.alt$ está confirmada por $S_1$.]
+  + Consideremos un enunciado #pause $S_1$. #pause
+  + $S_1$ es una consecuencia de cualquier enunciado $S_1 and phi.alt$. #pause
+  + Entonces, $S_1$ confirma $S_1 and phi.alt$. #pause
+  + $phi.alt$ es una consecuencia de $S_1 and phi.alt$ #pause
+  + #text(fill: red)[$phi.alt$ está confirmada por $S_1$.] #pause
 ][
-  ¿Dónde está el problema?
+  ¿Dónde está el problema? #pause
 
-  - Goodman anota que si bien aunque *algunos* enunciados que  confirman $H$ son consecuencias de $H$, *no toda consecuencia*  de $H$ la confirma.
+  - Goodman anota que si bien aunque *algunos* enunciados que  confirman $H$ son consecuencias de $H$, *no toda consecuencia*  de $H$ la confirma. #pause
   - La evidencia que cuenta en favor de una hipótesis   no solo se debe a ser consecuencia lógica de la hipótesis.
 ]
 
 == El nuevo problema de la inducción
 
-¿Qué hemos logrado hasta ahora?
+¿Qué hemos logrado hasta ahora? #pause
 
-- La confirmación de una hipótesis no depende únicamente de su forma lógica (sintáctica).
-- No depende solo de estudiar sus consecuencias lógicas.
+- La confirmación de una hipótesis no depende únicamente de su forma lógica (sintáctica). #pause
+- No depende solo de estudiar sus consecuencias lógicas. #pause
 - Algunos procesos inductivos parecen aceptables y otros inaceptables:
   #set align(top + center)
   #set text(size: 0.9em)
@@ -370,16 +369,18 @@ El problema con la definición anterior es que si es correcta, *todo  enunciado 
     #set text(fill: red)
     «Todos/as los/las estudiantes tienen cabello largo.»]
 
+  #pause
+
 #align(center)[¿Existe alguna diferencia sustancial entre estos tipos de hipótesis?]
 
 == Verde y verdul
 
-Supongamos que todas las esmeraldas examinadas antes de hoy (o cualquier otro momento $t$) lucen #text(fill: olive)[verdes].
+Supongamos que todas las esmeraldas examinadas antes de hoy (o cualquier otro momento $t$) lucen #text(fill: olive)[verdes]. #pause
 
-- Observamos varias esmeraldas $e_1 \, e_2 . . . e_n$ que resultan lucir #text(fill: olive)[verdes].
-- Inferimos la hipótesis: #text(fill: olive)[«Las esmeraldas son verdes»].
+- Observamos varias esmeraldas $e_1, pause e_2 pause ..., e_n$  #pause que resultan lucir #text(fill: olive)[verdes].
+- Inferimos la hipótesis:  #pause #text(fill: olive)[«Las esmeraldas son verdes»].  #pause
 
-Goodman ahora introduce un predicado artificial: .
+Goodman ahora introduce un predicado artificial:  #pause
 
 #definition(
   "Verdul",
@@ -388,40 +389,43 @@ Goodman ahora introduce un predicado artificial: .
 
 == Problemas con «verdul»
 
-¿Son las esmeraldas #text(fill: olive)[*verdes*] o son #text(fill: blue)[*verdules*]?
+¿Son las esmeraldas #text(fill: olive)[*verdes*] o son #text(fill: blue)[*verdules*]?  #pause
 
-- No pueden ser ambas. Estos predicados son mutuamente excluyentes.
+- No pueden ser ambas. Estos predicados son mutuamente excluyentes. #pause
 
-Tenemos que buscar formas de dirimir entre estas dos hipótesis.
+Tenemos que buscar formas de dirimir entre estas dos hipótesis. #pause
 
-- ¿Existe evidencia que podamos usar para determinar si las esmeraldas son verdes o verdules?
+- ¿Existe evidencia que podamos usar para determinar si las esmeraldas son verdes o verdules? #pause
 - ¿Podemos dirimir esta discusión empíricamente?
 
 ---
 
-*Problema*: ¡Ambas hipótesis están igualmente respaldadas por la evidencia!
+*Problema*: ¡Ambas hipótesis están igualmente respaldadas por la evidencia! #pause
 
-- Asumamos que encontramos una esmeralda que, actualmente, luce verde.
-- ¿Es esta esmeralda *verde* o *verdul*?
+- Asumamos que encontramos una esmeralda que, actualmente, luce verde. #pause
+- ¿Es esta esmeralda *verde* o *verdul*? #pause
 
-#align(center)[¡No podemos saberlo! ]
+#align(center)[¡No podemos saberlo!]
+#pause
 
-- No sabemos si en el futuro este objeto se tornará azul (si es verdul) o no (si es verde).
-- Tenemos tan buenas razones para pensar que la esmeralda siempre será verde (i.e., es verde) a que en el futuro se tornará azul (i.e., es verdul).
+- No sabemos si en el futuro este objeto se tornará azul (si es verdul)  #pause o no (si es verde).  #pause
+- Tenemos tan buenas razones para pensar que la esmeralda siempre será verde (i.e., es verde) a que en el futuro se tornará azul (i.e., es verdul). #pause
 
 Si esto es así, ninguna esmeralda que encontremos nos permitirá dirimir entre estas hipótesis.
 
 == Ejemplo: Conducción del cobre
 
-Consideremos la hipótesis «El cobre conduce la electricidad».
+Consideremos la hipótesis «El cobre conduce la electricidad». #pause
 
-Según este enunciado, querríamos inferir de toda muestra de cobre que encontremos que conducirá la electricidad.
+Según este enunciado, querríamos inferir de *toda muestra de cobre que encontremos que conducirá la electricidad*. #pause
 
-En sentido estricto, tenemos evidencia de que si algo es de cobre #text(fill: red)[(y ya lo hemos examinado)], conducirá la electricidad.
+En sentido estricto, tenemos evidencia de que si algo es de cobre #text(fill: red)[(y ya lo hemos examinado)], conducirá la electricidad. #pause
 
-$ forall x ( & C x arrow.r (E(x, t) and C o n d (x)) or (not E(x,t) and not C o n d (x)))) $
+#align(center)[
+  $forall x$ #pause $( C x arrow.r$ #pause $(E(x, t) and C o n d (x) )$  $or$  #pause $(not E(x,t) and not C o n d (x))))$
+]
 
-Supongamos que encontramos, entonces, una muestra de cobre.
+Supongamos que encontramos, entonces, una muestra de cobre. #pause
 
 - ¿Conducirá esta muestra la electricidad?
 
@@ -433,91 +437,93 @@ Supongamos que encontramos, entonces, una muestra de cobre.
     #grid(
       columns: 2,
       gutter: 1em,
-      "Lo único que sabemos de nuestra muestra es que es de cobre y que no la hemos examinado todavía.",
-      $C c and not E(c, t)$,
+      [Lo único que sabemos de nuestra muestra es que es de cobre y que no la hemos examinado todavía.  #pause],
+      [$C c and not E(c, t)$  #pause],
 
-      "Una consecuencia de nuestra hipótesis anterior es que nuestra muestra se comportará así: ",
-      $C c & arrow (E(c, t) and C o n d (c)) or (not E(c, t) and not C o n d (c)))$,
+      [Una consecuencia de nuestra hipótesis anterior es que nuestra muestra se comportará así:  #pause],
+      [$C c pause arrow$ #text(
+          fill: blue,
+        )[$(E(c, t) and C o n d (c)) pause or (not E(c, t) and not C o n d (c))$]  #pause],
 
       [Dado que nuestra muestra es de cobre, ella conduce la electricidad y ha sido examinada antes de $t$, o no conduce la electricidad y no ha sido examinada antes de $t$.],
-      $(E(c, t) and C o n d (c)) or (not E(c, t) and not C o n d (c)))$,
+      [#text(fill: blue)[$(E(c, t) and C o n d (c)) pause or (not E(c, t) and not C o n d (c)))$]  #pause],
 
       [Sabemos que no hemos examinado la muestra antes de $t$, por lo que sabemos que:],
-      $not (E(c, t) and C o n d (c))$,
+      [$not (E(c, t) and C o n d (c))$  #pause],
 
       [De lo anterior, se sigue necesariamente que la muestra no conduce la electricidad y no ha sido examinada antes de $t$:],
-      $not E(c,t) and C o n d (c)$,
+      [$not E(c,t) and$ #text(fill:red)[$not C o n d (c)$]  #pause],
 
       text(fill: red)[Luego, debemos concluir que la muestra *no conduce la electricidad*.],
       text(fill: red)[$not C o n d(c)$],
     )]]
 
 == Lecciones de «verdul»
-Es claro que «verdul» o el predicado "conduce la electricidad y fue examinado antes de $t$ o no conduce electricidad y no ha sido examinado antes de $t$" son *predicados extraños*.
+Es claro que «verdul» o el predicado "conduce la electricidad y fue examinado antes de $t$ o no conduce electricidad y no ha sido examinado antes de $t$" son *predicados extraños*.  #pause
 
-- La pregunta es: *¿cómo distinguimos predicados extraños de predicados normales?*
+- La pregunta es: *¿cómo distinguimos predicados extraños de predicados normales?* #pause
 
-Podríamos apelar a que necesitamos acrobacias lógicas para definir «verdul», pero no para definir «verde».
+Podríamos apelar a que necesitamos acrobacias lógicas para definir «verdul», pero no para definir «verde». #pause
 
-- El problema es que *podamos* hacer acrobacias lógicas, no que las hagamos.
+- El problema es que *podamos* hacer acrobacias lógicas, no que las hagamos. #pause
 
 *Consecuencia:* (Al parecer) No podemos determinar qué cuenta como evidencia de una hipótesis apelando únicamente a factores lógicos.
 
 == Resumen
-Para resolver el problema de la inducción, debemos distinguir *inferencias inductivas válidas* e inválidas.
+Para resolver el problema de la inducción, debemos distinguir *inferencias inductivas válidas* e inválidas. #pause
 
-- Para ello, debemos distinguir *predicados extraños* de *predicados normales*.
-- Solo aceptaríamos inferencias inductivas sobre predicados normales.
-- Siempre podemos formular predicados extraños sobre la base de la evidencia disponible.
+- Para ello, debemos distinguir *predicados extraños* de *predicados normales*. #pause
+- Solo aceptaríamos inferencias inductivas sobre predicados normales. #pause
+- Siempre podemos formular predicados extraños sobre la base de la evidencia disponible. #pause
 - Toda la evidencia hasta el momento apoya un sinnúmero de hipótesis posibles.
 
 = Solucionando el problema de la inducción
 == Algunas soluciones
-Existen varias propuestas para enfrentar el problema de la inducción.
+Existen varias propuestas para enfrentar el problema de la inducción. #pause
 
-- Mostrar por qué los predicados extraños (e.g., «verdul») son *ilegítimos*.
-- Mostrar que podemos escoger «verde» sobre «verdul» (e hipótesis similares) por alguna *preferencia razonable*.
+- Mostrar por qué los predicados extraños (e.g., «verdul») son *ilegítimos*. #pause
+- Mostrar que podemos escoger «verde» sobre «verdul» (e hipótesis similares) por alguna *preferencia razonable*. #pause
 - Buscar racionalidad científica *sin resolver* el problema de la inducción.
 
 == 1. Excluir predicados extraños
-La primera alternativa es insistir en que «verdul» es un predicado *ilegítimo*.
+La primera alternativa es insistir en que «verdul» es un predicado *ilegítimo*. #pause
 
-- "«Verdul» no es una *propiedad* del mundo, mientras que «verde» sí lo es."
-- "Los objetos «verdules» no forman una *clase natural*, mientras que los objetos verdes sí." #footcite(<Quine1969>)
-- "«Verdul» incluye en su definición *predicados inadmisibles* en una hipótesis (e.g., 'Examinado antes de $t$')."
+- "«Verdul» no es una *propiedad* del mundo, mientras que «verde» sí lo es." #pause
+- "Los objetos «verdules» no forman una *clase natural*, mientras que los objetos verdes sí." #footcite(<Quine1969>) #pause
+- "«Verdul» incluye en su definición *predicados inadmisibles* en una hipótesis (e.g., 'Examinado antes de $t$')." #pause
 
-Estas alternativas buscan mantener el proyecto de *fundamentar* la justificación de inferencias inductivas.
+Estas alternativas buscan mantener el proyecto de *fundamentar* la justificación de inferencias inductivas. #pause
 
 - Parecen exigir consideraciones *lógicas* o *metafísicas*.
 
 == 2. Escoger mejores predicados
-Otras soluciones sostienen que lógicamente «verdul» y «verde» son aceptables, pero hay elementos *extralógicos* en juego.
+Otras soluciones sostienen que lógicamente «verdul» y «verde» son aceptables, pero hay elementos *extralógicos* en juego. #pause
 
-- "«Verde» hace parte de *prácticas* inferenciales ya aceptadas." (Goodman)
-- "«Verde» es un predicado más *simple* que «verdul», y debemos preferir teorías simples (por Navaja de Ockham)."
+- "«Verde» hace parte de *prácticas* inferenciales ya aceptadas." (Goodman) #pause
+- "«Verde» es un predicado más *simple* que «verdul», y debemos preferir teorías simples (por Navaja de Ockham)." #pause
 
-Estas respuestas exigen aceptar tesis *pragmatistas* sobre tesis *realistas*.
+Estas respuestas exigen aceptar tesis *pragmatistas* sobre tesis *realistas*. #pause
 
 - A algunas soluciones se les conoce como aproximaciones "epistemology-first" (vs. "metaphysics-first").
 
 == 3. No solucionar el problema
-Otros dejan el problema de la inducción de lado y buscan encontrar justificación entre hipótesis de otras maneras.
+Otros dejan el problema de la inducción de lado y buscan encontrar justificación entre hipótesis de otras maneras. #pause
 
-- Aunque no resolvamos el problema de la inducción, debemos escoger ciertas hipótesis sobre otras.
-- Podemos escoger hipótesis más *falseables* (Popper, ¡próxima sesión!)
+- Aunque no resolvamos el problema de la inducción, debemos escoger ciertas hipótesis sobre otras. #pause
+- Podemos escoger hipótesis más *falseables* (Popper, ¡próxima sesión!) #pause
 - Escogemos hipótesis por factores lógicos, pero también *sociales* (Kuhn#footcite(<Kuhn1962>), Bloor#footcite(<Bloor2003>)).
 
 =
 == Resumen
 
-El problema de la inducción consiste en la pregunta:
+El problema de la inducción consiste en la pregunta: #pause
 
-#align(center)[*¿Cómo se justifican las inferencias inductivas?*]
+#align(center)[*¿Cómo se justifican las inferencias inductivas?*] #pause
 
-Aprendimos que no es fácil responder *apelando exclusivamente* a asuntos de la *lógica*.
+Aprendimos que no es fácil responder *apelando exclusivamente* a asuntos de la *lógica*. #pause
 
-- La evidencia hasta el momento apoya infinitas hipótesis posibles.
-- No podemos decidir entre hipótesis únicamente sobre la base de evidencia previa.
+- La evidencia hasta el momento apoya infinitas hipótesis posibles. #pause
+- No podemos decidir entre hipótesis únicamente sobre la base de evidencia previa. #pause
 
 Necesitamos todavía una teoría de la inducción que aclare cuáles inferencias inductivas son válidas y cuáles no lo son.
 
@@ -530,5 +536,5 @@ Necesitamos todavía una teoría de la inducción que aclare cuáles inferencias
   "2-Goodman.yml",
   full: true,
   style: "../../Plantilla/apa.csl",
-  title: none
+  title: none,
 )

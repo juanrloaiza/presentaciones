@@ -3,7 +3,7 @@
         "commands": [
             {
                 "autoClearConsole": true,
-                "match": "\\.(md)$",  // Adjust file pattern as needed
+                "match": "\\.(md)$", // Only triggers for markdown files
                 "cmd": "cd '${workspaceFolder}' && ./build.sh '${relativeFile}'",
                 "runIn": "terminal",
                 "showElapsed": true
@@ -16,5 +16,6 @@
         "no-emphasis-as-heading": false,
         "no-duplicate-heading": false
     },
-    "latex-workshop.formatting.latex": "tex-fmt"
+    "latex-workshop.formatting.latex": "tex-fmt",
+    "tinymist.formatterMode": "typstyle",
 }

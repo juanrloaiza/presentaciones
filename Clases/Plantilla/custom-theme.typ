@@ -231,6 +231,7 @@
   }
 
   pad(left: 1em)[
+    #set align(top)
     #grid(
       columns: 2,
       gutter: 0.8em,

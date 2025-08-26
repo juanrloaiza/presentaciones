@@ -177,12 +177,35 @@ Hay dos tipos de argumentos: #pause
 
 == Ejercicios
 
-¿Cuáles de los siguientes argumentos son deductivos y cuáles son
-inductivos?
+¿Cuáles de los siguientes argumentos son #text(fill: blue)[#alternatives()[deductivos y cuáles son inductivos][válidos o inválidos][sólidos o no sólidos]]?
 
-¿Cuáles de ellos son válidos y cuáles inválidos?
+#block[
+  #set text(size: 0.8em)
+  #set align(top)
+  #grid(
+    columns: (45%, 50%),
+    gutter: 2em,
+    standard-argument(
+      [Las bicicletas buenas son muy caras.],
+      [Esta es una buena bicicleta.],
+      [Esta es una bicicleta muy cara.],
+    ),
+    [José estudiará filosofía o psicología. José no estudiará filosofía, así que José estudiará psicología.],
 
-Entre los argumentos válidos, ¿cuáles son sólidos y cuáles no lo son?
+    standard-argument(
+      [La mayoría de ajedrecistas son brillantes.],
+      [María es ajedrecista.],
+      [María es brillante.],
+    ),
+    [Casi todos las ciudades grandes tienen metro. Bogotá es una ciudad grande, por lo tanto Bogotá tiene metro.],
+
+    standard-argument(
+      [Rio de Janeiro queda en Asia.],
+      [Yo vivo en Rio de Janeiro.],
+      [Yo vivo en Asia.],
+    ),
+    [Todas las muestras de agua que hemos examinado son puras. Esta es una (nueva) muestra de agua, entonces esta muestra de agua será pura.],
+  )]
 
 = El problema de la inducción
 
@@ -452,7 +475,7 @@ Supongamos que encontramos, entonces, una muestra de cobre. #pause
       [$not (E(c, t) and C o n d (c))$  #pause],
 
       [De lo anterior, se sigue necesariamente que la muestra no conduce la electricidad y no ha sido examinada antes de $t$:],
-      [$not E(c,t) and$ #text(fill:red)[$not C o n d (c)$]  #pause],
+      [$not E(c,t) and$ #text(fill: red)[$not C o n d (c)$]  #pause],
 
       text(fill: red)[Luego, debemos concluir que la muestra *no conduce la electricidad*.],
       text(fill: red)[$not C o n d(c)$],

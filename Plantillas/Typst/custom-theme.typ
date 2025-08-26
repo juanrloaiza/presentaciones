@@ -1,5 +1,7 @@
 #import "@preview/touying:0.6.1": *
+#import "@preview/fontawesome:0.6.0": *
 #import "@preview/showybox:2.0.4": showybox
+#import "@preview/cades:0.3.0": qr-code
 
 #let colors = (
   primary: rgb("#4c566a"),
@@ -54,9 +56,9 @@
     show: pad.with(.4em)
     utils.call-or-display(self, self.store.title)
     h(1fr)
-    utils.call-or-display(self, self.store.course)
+    utils.call-or-display(self, self.store.event)
     text[ · ]
-    utils.call-or-display(self, self.store.semester)
+    utils.call-or-display(self, self.store.date)
   }
   self = utils.merge-dicts(self, config-page(header: header, footer: footer))
   touying-slide(self: self, ..args)
@@ -83,17 +85,26 @@
     set align(horizon)
     v(-5em)
     block(
-      text(size: 2em, fill: self.colors.primary, weight: "bold", self.store.title),
+      width: 30em,
+      {
+        text(size: 1.5em, fill: self.colors.primary, weight: "bold", self.store.title)
+        v(0.5em)
+      },
     )
     if info.author != none {
       block(info.author)
     } else {
-      block[Juan R. Loaiza]
+      block[
+        #set par(leading: 0.6em)
+        Juan R. Loaiza\
+        #set text(size: 0.8em)
+        Departamento de Filosofía \
+        Universidad Alberto Hurtado]
     }
     text(size: 0.8em)[
-      #self.store.course\
-      Universidad Alberto Hurtado\
-      #self.store.semester
+
+      #self.store.event\
+      #self.store.date
     ]
     if info.date != none {
       block(utils.display-info-date(self))
@@ -102,13 +113,31 @@
   touying-slide(self: self, ..args, body)
 })
 
+#let thank-you-slide(..args) = touying-slide-wrapper(self => {
+  let body = [
+    #set align(center)
+    == ¡Gracias!
+    #v(1em)
+    
+    #block[
+      #set align(center)
+      #qr-code("https://www.juanrloaiza.com")
+      www.juanrloaiza.com
+    ]
+  ]
+
+  touying-slide(self: self, ..args, body)
+})
+
 #let custom-theme(
   ..args,
   title: auto,
-  course: auto,
-  semester: none,
-  color-palette: colors,
+  event: auto,
+  date: none,
+  colors: colors,
   lang: "es",
+  bibfile: none,
+  bibstyle: "apa",
   body,
 ) = {
   set text(
@@ -142,22 +171,32 @@
       slide-fn: slide,
       title-slide: title-slide,
     ),
-    config-colors(..color-palette),
+    config-colors(..colors), // We define the color palette above
     config-store(
       title: title,
       slide-title: none,
-      course: course,
-      semester: semester,
-    ),
+      event: event,
+      date: date,
+    ), // We define some variables to feed into the slide and title slide templates.
     //config-methods(cover: utils.semi-transparent-cover.with(alpha: 85%)),
     ..args,
   )
 
+  set align(horizon) // Align slide content vertically
 
-  set align(horizon)
+  title-slide() // Include the Title Slide
+  body // The rest of the file content
+  thank-you-slide() // Thank you slide
 
-  title-slide()
-  body
+
+  if bibfile != none {
+    [
+      =
+      == Bibliografía
+    ]
+    set text(size: 0.8em)
+    bibliography(bibfile, style: bibstyle, title: none)
+  }
 }
 
 // UTILITIES
@@ -175,8 +214,8 @@
   width: 90%,
   color: colors.highlight-1,
   size: 0.9em,
-  term,
-  definition,
+  term: none,
+  definition: none,
 ) = {
   set text(size: size)
   showybox(
@@ -203,7 +242,10 @@
 ) = {
   set text(size: size)
   showybox(
-    title: title,
+    title: [
+      #set align(horizon)
+      #fa-icon("note-sticky") #h(0.2em) #title
+    ],
     width: width,
     align: center,
     frame: (
@@ -217,7 +259,7 @@
 }
 
 #let highlight(str, color: colors.highlight-1) = {
-  text(fill: color)[str]
+  text(fill: color)[#str]
 }
 
 #let standard-argument(..propositions) = {
@@ -257,7 +299,21 @@
   ]
 ]
 
+#let footcite(key, ..args) = {
+  footnote[#cite(key, form: "full", ..args)]
+}
 
-#let footcite(key) = {
-  footnote[#cite(key, form: "full")]
+#let textcite(key, ..args) = {
+  cite(key, form: "prose", ..args)
+  footcite(key)
+}
+
+#let bottom-note(word, note) = {
+  box(inset: (bottom: 1em), baseline: 1em)[
+    #word
+
+    #set text(size: 0.7em)
+    #place(dy: 1em)[#box(fill: rgb("#eee"), inset: 0.3em, radius: 3pt)[#note]]
+
+  ]
 }

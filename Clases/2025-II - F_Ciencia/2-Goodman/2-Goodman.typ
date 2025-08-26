@@ -218,7 +218,7 @@ Hume. #pause
 - Nuestro conocimiento científico viene por la experiencia, i.e., razonamiento sobre *cuestiones de hecho*. #pause
 - Las conclusiones en inferencias por cuestiones de hecho *no se siguen necesariamente*.
 
-== El problema según Hume
+---
 
 Todo razonamiento inductivo, según Hume, tiene la forma: #pause
 
@@ -536,7 +536,7 @@ Otros dejan el problema de la inducción de lado y buscan encontrar justificaci�
 - Podemos escoger hipótesis más *falseables* (Popper, ¡próxima sesión!) #pause
 - Escogemos hipótesis por factores lógicos, pero también *sociales* (Kuhn#footcite(<Kuhn1962>), Bloor#footcite(<Bloor2003>)).
 
-=
+= Conclusión
 == Resumen
 
 El problema de la inducción consiste en la pregunta: #pause

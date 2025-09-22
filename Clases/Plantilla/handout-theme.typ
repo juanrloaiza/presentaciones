@@ -1,27 +1,63 @@
 #import "@preview/showybox:2.0.4": showybox
 
+#let colors = (
+  primary: rgb("#4c566a"),
+  neutral-lightest: rgb("#ffffff"),
+  neutral-light: rgb("#8e8e8e"),
+  neutral-lightish: rgb("#535353"),
+  neutral-darkest: rgb("#000000"),
+  highlight-1: rgb("#5e81ac"),
+  highlight-2: rgb("#8fbcbb"),
+)
 
 #let custom-theme(
   ..args,
   title: none,
+  course: none,
+  semester: none,
   body,
 ) = {
   set text(font: "Lato")
+  set page(paper: "us-letter", margin: 1in)
+  set par(justify: true)
+
+  show quote.where(block: true): set block(above: 1.25em, inset: (x: 1.5em))
+
+
+  text(size: 0.8em)[
+    Universidad Alberto Hurtado\
+    #course\
+    Profesor: Juan R. Loaiza\
+    #semester
+  ]
+  [
+    #set align(center)
+    #set text(size: 1.25em)
+    = #title]
+  set heading(offset: 1)
+
+  let new-numbering(..numbers) = {
+    [#numbers.at(1).]
+  }
 
   show heading.where(level: 2): it => {
-    set text(size: 12pt)
-    set block(below: 0.75em, spacing: 1.5em)
-    it
+    set text(size: 14pt, fill: white)
+    block(above: 2em, spacing: 1.25em, fill: colors.highlight-1, width: 100%, inset: (y: 0.5em, left: 0.5em), radius: 5pt, it)
   }
-  show heading.where(level: 1): set heading(numbering: "1.")
-  show heading.where(level: 1): set text(size: 14pt)
+  show heading.where(level: 2): set heading(numbering: new-numbering)
+  show heading.where(level: 3): set text(fill: colors.highlight-1)
 
-  show quote.where(block: true): set block(above: 1.25em)
+  show columns.where(count: 2): it => {
+    box[#it]
+  }
+
+  show regex("—"): v(1em)
+
   body
 }
 
 #let pause = {}
-#let centered-box(text) = { text }
+#let centered-box(text, width: 90%) = { text }
 #let definition(term, definition) = {}
 #let alternatives(..alts) = {}
 #let definition(
@@ -51,7 +87,7 @@
   ..args,
   title: "Ejemplo",
   width: 90%,
-  color: black,
+  color: colors.highlight-2,
   size: 0.9em,
   body,
 ) = {

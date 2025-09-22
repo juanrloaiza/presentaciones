@@ -1,107 +1,110 @@
-#import "../../Plantillas/Typst/custom-theme.typ": *
+#set page(paper: "us-letter", numbering: "1")
+#set text(lang: "es", font: "Rubik")
+#set strong(delta: 100)
+#set par(justify: true)
 
-#show: custom-theme.with(
-  title: [Orgullo, vicios epistémicos y confianza en la ciencia],
-  event: "ICOMTA '25",
-  date: "02.09.2025",
-  bibfile: "/Eventos/2025.09 - ICOMTA (Valdivia)/ICOMTA.bib",
-)
+#show cite.where(form: "normal"): set text(size: 0.7em, fill: rgb("#aaa"))
 
-= Introducción
+#show heading: set block(below: 0.75em)
 
-== Emociones en la ciencia
+// DOCUMENT START
 
-Las emociones juegan un rol fundamental en nuestra relación con el conocimiento.
+#set align(center)
+= Orgullo, vicios epistémicos y controversias científicas: cómo se crea desconfianza en la ciencia
 
-#columns(2)[#image(height: 10em, "fig1.jpg") #colbreak() #image(height: 10em, "fig2.jpg")]
+#block(above: 1.5em, below: 1.5em)[
+  #set text(size: 0.9em)
 
-Emociones como la maravilla o la curiosidad nos motivan a conocer.
+  Juan R. Loaiza\
+  Departamento de Filosofía\
+  Universidad Alberto Hurtado
+]
 
-Sin embargo, no todas las emociones promueven el conocimiento.
+#set align(left)
 
----
+Las emociones juegan un rol importante en cuánto confiamos en la ciencia.
 
-== Tesis y argumento
+- La literatura se ha enfocado en el rol motivacional de las emociones, especialmente el *miedo*. #cite(<Chapman2017>) #cite(<So2016>)
 
+Las emociones también juegan un rol *epistémico*.
+
+- Son indicativas de nuestras *capacidades* o *habilidades* como conocedores/as.
+- Motivan o inhiben *buenas prácticas* de pensamiento crítico.
 
 #align(center)[
-  #showybox(
-    width: 80%,
-    frame: (
-      border-color: colors.highlight-1,
-      thickness: (left: 0.5em, y: 1pt, right: 1pt),
-    ),
-  )[
-    #grid(
-      columns: 2,
-      gutter: 1em,
-      [
-        #align(horizon)[#fa-icon("comments")]
-      ],
-      block[El orgullo desmesurado promueve vicios epistémicos y desconfianza en la ciencia.],
+  #block(inset: 1em, stroke: 0.5pt, radius: 5pt)[
+    #set align(left)
+    === Tesis
+    Algunos casos de desconfianza en la ciencia se explican por *soberbia epistémica*.
 
-      "",
-      [
-        1. El orgullo desmesurado promueve sobrevalorar capacidades críticas propias.
-        2. Sobrevalorar las capacidades críticas propias lleva a errores en la evaluación de la evidencia y la experticia.
-        *Análisis de caso:* Confianza en el cambio climático antropogénico
-      ],
-    )
+    === Argumento
+
+    1. La *soberbia* es una forma de *orgullo excesivo* y un *vicio epistémico*.
+    2. La soberbia genera *desconfianza* en el consenso científico.
+      - Caso de estudio: Creencias en el cambio climático antropogénico.
   ]
 ]
 
-= Emociones y vicios epistémicos
+== 1. Orgullo, actitudes y vicios epistémicos
 
-== ¿Qué es un/a buen/a conocedor/a?
+Algunas de las habilidades que debemos cultivar como conocedores/as son sobre cómo *evaluar* nuestras *capacidades* y *limitaciones*.
 
-En epistemología contemporánea, un enfoque popular es la *epistemología de las virtudes*.
+- #cite(<Tanesini2021>, form: "prose") les llama *virtudes y vicios intelectuales*.
 
-- Estudia *hábitos* o *rasgos* que promueven la adquisición de #bottom-note()[#highlight[conocimiento]][Creencia verdadera justificada].#footcite(<Battaly2008>)
+Una *virtud* intelectual es el *orgullo epistémico*.
 
-¿Cómo pueden las personas mejorar sus *habilidades* de adquisición y revisión de *creencias verdaderas*?
+- Actitud positiva sobre las capacidades propias.
+- Motiva a la mejoría propia y al esfuerzo en conocer.
+- Fomenta altos estándares de evaluación de creencia.
 
-- Prácticas para ejercitar habilidades
-- Reforzar hábitos epistémicamente saludables (*virtudes*)
+Dos vicios asociados: *servilismo* (carencia de orgullo) y #text(fill: blue)[*soberbia*] (exceso de orgullo)
 
-== ¿Qué son los vicios epistémicos?
+- La soberbia motiva elevarse por encima de las capacidades reales y subestimar a las demás personas.
+- Pueden formarse para proteger el autoestima o acomodarse a la comunidad.
+- Promueve la ira y la sensación de agresión frente al desacuerdo.
+- Se relaciona con tener una mente cerrada, el dogmatismo, y la ignorancia activa.
 
-Los *vicios epistémicos* son malas prácticas, hábitos, y rasgos sobre el conocimiento.
+El *orgullo como emoción* motiva la actitud del orgullo. Sin controles adecuados, lleva a la soberbia.
 
-#example(title: "Ejemplos")[
-  #columns(2)[
-    - Ser una persona acrítica
-    - No escuchar a otras personas
-    #colbreak()
-    - Ser obstinado/a
-    - Falta de curiosidad
-  ]
-]
+- En su faceta negativa, promueve conductas de *dominancia*, y su activación neuronal asociada está a su vez asociada al pensamiento autorreferencial y procesamiento de recompensas. #cite(<Tracy2023>)
+- Las señales de orgullo facilitan la credibilidad y sesgan el aprendizaje social, incluso en casos de creencia falsa. #cite(<Martens2013>)
 
-A gran escala, los vicios epistémicos pueden facilitar problemas epistémicos sociales:
+== 2. Estudio de caso: Cambio climático antropogénico
 
-- Flujo de desinformación
-- Pereza sobre el conocimiento
-- #highlight[Desconfianza en la ciencia]
+El consenso científico es que el cambio climático está ocurriendo y tiene causas humanas.
 
-== Vicios intelectuales
+- ¿Qué factores motivan a las personas a confiar en este consenso?
 
-Algunos vicios epistémicos se deben a *fallas en estimar correctamente las habilidades propias*.
+Las personas que _creen_ que saben mucho no confían en el consenso científico.
 
-- #textcite(<Tanesini2021>) les llama *vicios intelectuales*.
+- Relación entre el nivel de conocimiento (autopercibido) y la desconfianza en la ciencia. En personas que reportan desconfiar en la ciencia o en personas republicanas (en EEUU), el alto conocimiento percibido no implica cambios de preocupación sobre el cambio climático. #cite(<Malka2009>)
+- La polarización aumenta junto con habilidades de comprensión científica. #cite(<Kahan2012>)
 
-Hay varias formas de vicios intelectuales.
+El individualismo tiende a crear desconfianza.
+
+- Personas con valores individualistas tienden a no creer en el cambio climático antropogénico. #cite(<Hornsey2016>)
+- El conocimiento real sobre el tema está negativamente correlacionado con el individualismo y actitudes positivas hacia las jerarquías sociales. #cite(<Guy2014>)
+- La alineación política (demócrata/republicando en EEUU) predice más la creencia en el cambio climático que otros factores. #cite(<Kellstedt2008>)
+- El apoyo al libre mercado e ideologías libertarias se asocia con escepticismo. #cite(<Heath2006>)
+
+== 3. Conclusión
+
+La desconfianza en la ciencia (en el caso del cambio climático antropogénico) se explica en parte por:
+
+- Alto conocimiento autopercibido
+- Alineación con valores individualistas
+
+Estas actitudes pueden explicarse como formas de *soberbia epistémica*.
+
+- Sobreestimación de las capacidades epistémicas propias.
+- Individualismo y falta de cooperación en la obtención de conocimiento.
+
+=== Recomendaciones
+
+- La desconfianza en la ciencia no se ataca únicamente con información, sino con cambio de emociones y actitudes.
+- El orgullo, como emoción, debe balancearse con una adecuada estimación de capacidades y limitaciones.
+- Debemos fomentar la cooperación epistémica y emociones que la faciliten.
+
 
 #set text(size: 0.9em)
-#columns(3)[
-  *Insensibilidades*\
-  No *atender* a elementos importantes de mis capacidades (o limitaciones)
-
-  #colbreak()
-  *Estilos de pensamiento*\
-  Preferir formas de *razonamiento* equivocadas
-
-  #colbreak()
-  *Rasgos del carácter*\
-  Disposiciones a *actuar* en formas epistémicamente nocivas
-]
-
+#bibliography("ICOMTA.bib", style: "american-psychological-association")

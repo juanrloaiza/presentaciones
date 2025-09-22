@@ -148,10 +148,6 @@ Este argumento es *inválido*, pues su conclusión *no se sigue* de las premisas
 
 Si el argumento es *inválido*, automáticamente *no es sólido*.
 
-== Ejemplos
-
-¿Cuáles de los siguientes argumentos son válidos? ¿Cuáles son sólidos?
-
 == Argumentos deductivos e inductivos
 
 Hay dos tipos de argumentos: #pause
@@ -230,7 +226,7 @@ Todo razonamiento inductivo, según Hume, tiene la forma: #pause
 
 ¿Qué justifica creer en (P2)? #pause
 
-Segúgn Hume, formamos ciertos *hábitos* con mayor o menor fuerza. #pause
+Según Hume, formamos ciertos *hábitos* con mayor o menor fuerza. #pause
 
 - ¿Es esta una respuesta o una concesión?
 

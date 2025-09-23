@@ -153,6 +153,8 @@
     ..args,
   )
 
+  // Set default values
+  set grid(columns: 2, gutter: 0.8em, align: top)
 
   set align(horizon)
 
@@ -162,9 +164,9 @@
 
 // UTILITIES
 
-#let centered-box(body, width: 90%) = {
+#let centered-box(body, width: 90%, ..args) = {
   set align(center)
-  box(width: width)[
+  box(width: width, ..args)[
     #set align(left)
     #body
   ]
@@ -217,7 +219,7 @@
 }
 
 #let highlight(str, color: colors.highlight-1) = {
-  text(fill: color)[str]
+  text(fill: color)[#str]
 }
 
 #let standard-argument(..propositions) = {

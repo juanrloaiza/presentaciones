@@ -54,11 +54,11 @@
     set text(fill: self.colors.neutral-light, size: .5em)
     set align(bottom)
     show: pad.with(.4em)
-    utils.call-or-display(self, self.store.title)
+    /*     utils.call-or-display(self, self.store.title)
     h(1fr)
     utils.call-or-display(self, self.store.event)
     text[ · ]
-    utils.call-or-display(self, self.store.date)
+    utils.call-or-display(self, self.store.date) */
   }
   self = utils.merge-dicts(self, config-page(header: header, footer: footer))
   touying-slide(self: self, ..args)
@@ -75,7 +75,25 @@
   let info = self.info + args.named()
   let body = {
     place(
+      bottom + left,
+      block(width: 25em)[
+        #set text(0.5em)
+
+        #grid(
+          align: horizon,
+          image(
+          width: 5em,
+          "ANID.svg",
+          ),
+        [ Fondecyt Iniciación 11250401 \
+        "Objetividad y diversidad cultural de las emociones: hacia una ciencia intercultural y situada de la emoción"]
+        )
+      ],
+    )
+
+    place(
       bottom + right,
+      dy: -6pt,
       image(
         width: 10em,
         "logo_uah_blanco.svg",
@@ -115,15 +133,8 @@
 
 #let thank-you-slide(..args) = touying-slide-wrapper(self => {
   let body = [
-    #set align(center)
-    == ¡Gracias!
-    #v(1em)
-    
-    #block[
-      #set align(center)
-      #qr-code("https://www.juanrloaiza.com")
-      www.juanrloaiza.com
-    ]
+
+
   ]
 
   touying-slide(self: self, ..args, body)
@@ -136,7 +147,7 @@
   date: none,
   colors: colors,
   lang: "es",
-  bibfile: none,
+  bib: none,
   bibstyle: "apa",
   body,
 ) = {
@@ -184,19 +195,41 @@
 
   set align(horizon) // Align slide content vertically
 
+  set grid(columns: 2, gutter: 1em, align: top) // Default grid settings
+
+  set bibliography(style: bibstyle, title: none)
+
   title-slide() // Include the Title Slide
   body // The rest of the file content
-  thank-you-slide() // Thank you slide
 
+  [
 
-  if bibfile != none {
-    [
-      =
-      == Bibliografía
-    ]
-    set text(size: 0.8em)
-    bibliography(bibfile, style: bibstyle, title: none)
-  }
+    =
+    == ¡Gracias!
+
+    #set text(0.8em)
+
+    #grid(
+      gutter: 5em,
+      align: horizon,
+      {
+        grid(
+          align: horizon + left,
+          qr-code("https://www.juanrloaiza.com", height: 5em),
+          [www.juanrloaiza.com],
+          qr-code("https://www.juanrloaiza.com", height: 5em),
+          [www.santiagomindandcognition.cl],
+        )
+      },
+      // Bibliography
+      if bib != none [
+        *Bibliografía*
+        #set text(size: 0.5em)
+        #bib
+      ],
+    )
+
+  ]
 }
 
 // UTILITIES

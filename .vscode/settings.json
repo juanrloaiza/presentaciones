@@ -18,4 +18,5 @@
     },
     "latex-workshop.formatting.latex": "tex-fmt",
     "tinymist.formatterMode": "typstyle",
+    "tinymist.rootPath": "${workspaceFolder}"
 }

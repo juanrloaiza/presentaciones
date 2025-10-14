@@ -154,7 +154,7 @@
   )
 
   // Set default values
-  set grid(columns: 2, gutter: 0.8em, align: top)
+  set grid(columns: 2, gutter: 2em, align: top)
 
   set align(horizon)
 

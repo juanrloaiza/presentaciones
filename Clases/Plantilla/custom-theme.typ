@@ -1,5 +1,6 @@
 #import "@preview/touying:0.6.1": *
 #import "@preview/showybox:2.0.4": showybox
+#import "@preview/cetz:0.4.2"
 
 #let colors = (
   primary: rgb("#4c566a"),
@@ -82,9 +83,10 @@
 
     set align(horizon)
     v(-5em)
-    block(
-      text(size: 2em, fill: self.colors.primary, weight: "bold", self.store.title),
-    )
+    block(width: 30em)[
+      #set par(leading: 0.5em)
+      #text(size: 2em, fill: self.colors.primary, weight: "bold", self.store.title)
+    ]
     if info.author != none {
       block(info.author)
     } else {

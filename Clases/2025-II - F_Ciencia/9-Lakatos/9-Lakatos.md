@@ -12,7 +12,7 @@ course: Filosofía de las ciencias
 Para Kuhn, la historia de la ciencia es la historia de paradigmas. \pause
 
 Paradigma
-: Modo de hacer ciencia 
+: Modo de hacer ciencia
 
 \pause
 
@@ -24,7 +24,6 @@ Un paradigma acarrea presuposiciones sobre: \pause
 Mientras un paradigma esté vigente, hay un período de **ciencia normal**. \pause
 
 - Se exploran las preguntas del paradigma.
-
 
 ## La historiografía de Kuhn
 
@@ -175,17 +174,17 @@ La ciencia contiene muchos enunciados que no son falseables. \pause
   ...
 
  \pause
- 
+
 **Tesis Duhem/Quine:** Una teoría no se abandona a la primera instancia en su contra.
 
 ## Problemas con el falsacionismo dogmático
 
 ### Criterio de la demarcación
 
-Toda teoría científica contiene **clásulas _ceteris paribus_**. \pause
+Toda teoría científica contiene **clásulas *ceteris paribus***. \pause
 
-C. _Ceteris Paribus_
-: La teoría es verdadera _si todo está en condiciones \textcolor{blue}{normales}_.
+C. *Ceteris Paribus*
+: La teoría es verdadera *si todo está en condiciones \textcolor{blue}{normales}*.
 
 \pause
 
@@ -260,7 +259,6 @@ Cuando buscamos falsear enunciados, tomamos dos decisiones metodológicas: \paus
 Se define lo que cuenta como "observación". \pause
 
 No se admite un criterio lógico para distinguirlos, sino convencional. \pause
-
 
 :::
 ::: {.column}
@@ -394,7 +392,6 @@ $\color{red} \lnot H_b$
 
 \end{tcboxeditemize}
 
-
 ## Cambios progresivos y regresivos
 
 Existen cambios entre teorías que son **progresivos**. \pause
@@ -495,7 +492,7 @@ $\color{red} \lnot H_c$
 Existen cambios en ciencia que son racionales. \pause
 
 - Buscamos proponer nuevas teorías que predigan nuevos hechos. \pause
-- Es irracional mantener teorías de modo _ad hoc_. \pause
+- Es irracional mantener teorías de modo *ad hoc*. \pause
 
 Mantenemos programas de investigación científica mientras sean progresivos. \pause
 

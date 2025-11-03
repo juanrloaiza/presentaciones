@@ -268,3 +268,5 @@
 #let footcite(key) = {
   footnote[#cite(key, form: "full")]
 }
+
+#let colMath(x, color: blue) = text(fill: color, weight: "bold", $#x$)

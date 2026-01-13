@@ -1,9 +1,14 @@
 #import "@preview/touying:0.6.1": *
 #import "@preview/fontawesome:0.6.0": *
 #import "@preview/showybox:2.0.4": showybox
+//#import "@preview/cades:0.3.0": qr-code
+
+#let qr-code(..args) = {}
+
+#let main-font = "Vend Sans"
 
 #let colors = (
-  primary: rgb("#4c566a"),
+  primary: rgb("#000000"),
   neutral-lightest: rgb("#ffffff"),
   neutral-light: rgb("#8e8e8e"),
   neutral-lightish: rgb("#535353"),
@@ -21,27 +26,27 @@
   let header(self) = {
     set align(top)
     show: components.cell.with(
-      fill: self.colors.primary,
+      stroke: (bottom: 0.3pt),
       inset: 2em,
-      height: 125%,
+      height: 150%,
     )
     set align(horizon)
     set text(
-      fill: self.colors.neutral-lightest,
-      size: .7em,
+      fill: self.colors.neutral-light,
+      size: 0.8em,
     )
 
     // Set the section heading only if it exists
     context {
       let heading = utils.current-heading(level: 1)
 
-      if heading.body != [] {
+      if heading != none {
         utils.display-current-heading(level: 1)
         linebreak()
       }
     }
 
-    set text(size: 1.8em)
+    set text(size: 1.8em, weight: "bold", fill: self.colors.neutral)
     if self.store.slide-title != none {
       utils.call-or-display(self, self.store.slide-title)
     } else {
@@ -59,7 +64,18 @@
     text[ · ]
     utils.call-or-display(self, self.store.date) */
   }
-  self = utils.merge-dicts(self, config-page(header: header, footer: footer))
+  self = utils.merge-dicts(
+    self,
+    config-page(
+      header: header,
+      footer: footer,
+      margin: (
+        top: 4.5em,
+        bottom: 1.5em,
+        x: 3em,
+      ),
+    ),
+  )
   touying-slide(self: self, ..args)
 })
 
@@ -71,24 +87,27 @@
     (100%, 100%),
     (60%, 100%),
   ))
+
   let info = self.info + args.named()
   let body = {
-    place(
-      bottom + left,
-      block(width: 25em)[
-        #set text(0.5em)
+    if (self.store.anid) {
+      place(
+        bottom + left,
+        block(width: 25em)[
+          #set text(0.5em)
 
-        #grid(
-          align: horizon,
-          image(
-          width: 5em,
-          "ANID.svg",
-          ),
-        [ Fondecyt Iniciación 11250401 \
-        "Objetividad y diversidad cultural de las emociones: hacia una ciencia intercultural y situada de la emoción"]
-        )
-      ],
-    )
+          #grid(
+            align: horizon,
+            image(
+              width: 5em,
+              "ANID.svg",
+            ),
+            [ Fondecyt Iniciación 11250401 \
+              "Objetividad y diversidad cultural de las emociones: \ hacia una ciencia intercultural y situada de la emoción"],
+          )
+        ],
+      )
+    }
 
     place(
       bottom + right,
@@ -139,6 +158,18 @@
   touying-slide(self: self, ..args, body)
 })
 
+#let blank-slide(..args) = touying-slide-wrapper(self => {
+  let footer(self) = {
+    set text(fill: self.colors.neutral-light, size: .5em)
+    set align(bottom)
+    show: pad.with(.4em)
+  }
+  self = utils.merge-dicts(self, config-page(footer: footer))
+  touying-slide(self: self, ..args)
+})
+
+
+
 #let custom-theme(
   ..args,
   title: auto,
@@ -148,11 +179,12 @@
   lang: "es",
   bib: none,
   bibstyle: "apa",
+  anid: false,
   body,
 ) = {
   set text(
     size: 18pt,
-    font: "Lato",
+    font: main-font,
     lang: lang,
   )
 
@@ -173,22 +205,19 @@
 
   show: touying-slides.with(
     aspect-ratio: "16-9",
-    config-page(
-      margin: (top: 4.5em, bottom: 1.5em, x: 3em),
-    ),
     config-common(
       new-section-slide-fn: none,
       slide-fn: slide,
       title-slide: title-slide,
     ),
-    config-colors(..colors), // We define the color palette above
+    config-colors(..colors),
     config-store(
       title: title,
       slide-title: none,
       event: event,
       date: date,
-    ), // We define some variables to feed into the slide and title slide templates.
-    //config-methods(cover: utils.semi-transparent-cover.with(alpha: 85%)),
+      anid: anid,
+    ),
     ..args,
   )
 
@@ -214,9 +243,9 @@
       {
         grid(
           align: horizon + left,
-
+          qr-code("https://www.juanrloaiza.com", height: 5em),
           [www.juanrloaiza.com],
-
+          qr-code("https://www.juanrloaiza.com", height: 5em),
           [www.santiagomindandcognition.cl],
         )
       },
@@ -233,9 +262,9 @@
 
 // UTILITIES
 
-#let centered-box(body, width: 90%) = {
+#let centered-box(margin-y: 1em, body, width: 90%) = {
   set align(center)
-  box(width: width)[
+  box(width: width, inset: (y: margin-y))[
     #set align(left)
     #body
   ]

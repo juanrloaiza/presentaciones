@@ -1,10 +1,13 @@
 #import "@preview/showybox:2.0.4": showybox
 #import "@preview/fontawesome:0.6.0": *
+#import "general-utils.typ": *
 
 #let custom-theme(
   title: none,
   event: none,
   date: none,
+  bib: none,
+  bibstyle: "apa",
   ..args,
   body
 ) = {
@@ -16,4 +19,9 @@
   ]
 
   body
+
+  set bibliography(style: bibstyle)
+  bib
 }
+
+#let pause = ""

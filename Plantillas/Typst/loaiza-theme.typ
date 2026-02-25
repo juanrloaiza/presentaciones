@@ -1,6 +1,7 @@
 #import "@preview/touying:0.6.1": *
 #import "@preview/fontawesome:0.6.0": *
 #import "@preview/showybox:2.0.4": showybox
+#import "general-utils.typ": *
 //#import "@preview/cades:0.3.0": qr-code
 
 #let qr-code(..args) = {}
@@ -58,11 +59,10 @@
     set text(fill: self.colors.neutral-light, size: .5em)
     set align(bottom)
     show: pad.with(.4em)
-    /*     utils.call-or-display(self, self.store.title)
-    h(1fr)
-    utils.call-or-display(self, self.store.event)
-    text[ · ]
-    utils.call-or-display(self, self.store.date) */
+
+    if self.store.draft == true {
+      text(fill: red, size: 5em, context utils.slide-counter.display())
+    }
   }
   self = utils.merge-dicts(
     self,
@@ -151,8 +151,6 @@
 
 #let thank-you-slide(..args) = touying-slide-wrapper(self => {
   let body = [
-
-
   ]
 
   touying-slide(self: self, ..args, body)
@@ -180,6 +178,7 @@
   bib: none,
   bibstyle: "apa",
   anid: false,
+  draft: true,
   body,
 ) = {
   set text(
@@ -217,6 +216,7 @@
       event: event,
       date: date,
       anid: anid,
+      draft: draft,
     ),
     ..args,
   )
@@ -260,106 +260,6 @@
   ]
 }
 
-// UTILITIES
-
-#let centered-box(margin-y: 1em, body, width: 90%) = {
-  set align(center)
-  box(width: width, inset: (y: margin-y))[
-    #set align(left)
-    #body
-  ]
-}
-
-#let definition(
-  ..args,
-  width: 90%,
-  color: colors.highlight-1,
-  size: 0.9em,
-  term: none,
-  definition: none,
-) = {
-  set text(size: size)
-  showybox(
-    title: [*#term*],
-    width: width,
-    align: center,
-    frame: (
-      title-color: color,
-      border-color: color,
-    ),
-    ..args,
-  )[
-    #definition
-  ]
-}
-
-#let example(
-  ..args,
-  title: "Ejemplo",
-  width: 90%,
-  color: colors.highlight-2,
-  size: 0.9em,
-  body,
-) = {
-  set text(size: size)
-  showybox(
-    title: [
-      #set align(horizon)
-      #fa-icon("note-sticky") #h(0.2em) #title
-    ],
-    width: width,
-    align: center,
-    frame: (
-      title-color: color,
-      border-color: color,
-    ),
-    ..args,
-  )[
-    #body
-  ]
-}
-
-#let highlight(str, color: colors.highlight-1) = {
-  text(fill: color)[#str]
-}
-
-#let standard-argument(..propositions) = {
-  let propositions = (..propositions.pos(),)
-  let conclusion = propositions.pop()
-
-  let argument = ()
-  for (n, p) in propositions.enumerate() {
-    argument.push([(P#(n + 1))])
-    argument.push(p)
-  }
-
-  pad(left: 1em)[
-    #grid(
-      columns: 2,
-      gutter: 0.8em,
-      ..argument,
-      [(C)],
-      conclusion,
-    )]
-}
-
-#let quote(..args, body) = [
-  #set text(
-    size: 0.9em,
-    fill: colors.neutral-lightish,
-  )
-
-  #pad(x: 1em)[
-    #box(
-      inset: (left: 0.75em, top: 0.2em, bottom: 0.2em),
-      stroke: (left: 2pt),
-      radius: 2pt,
-    )[
-      #body
-    ]
-  ]
-]
-
 #let footcite(key, ..args) = {
   footnote[#cite(key, form: "full", ..args)]
 }
@@ -367,14 +267,4 @@
 #let textcite(key, ..args) = {
   cite(key, form: "prose", ..args)
   footcite(key)
-}
-
-#let bottom-note(word, note) = {
-  box(inset: (bottom: 1em), baseline: 1em)[
-    #word
-
-    #set text(size: 0.7em)
-    #place(dy: 1em)[#box(fill: rgb("#eee"), inset: 0.3em, radius: 3pt)[#note]]
-
-  ]
 }

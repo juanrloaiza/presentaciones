@@ -2,9 +2,7 @@
 #import "@preview/fontawesome:0.6.0": *
 #import "@preview/showybox:2.0.4": showybox
 #import "general-utils.typ": *
-//#import "@preview/cades:0.3.0": qr-code
-
-#let qr-code(..args) = {}
+#import "@preview/cades:0.3.1": qr-code
 
 #let main-font = "Vend Sans"
 
@@ -230,29 +228,29 @@
   title-slide() // Include the Title Slide
   body // The rest of the file content
 
-  [
-
-    =
-    == ¡Gracias!
-
-    #set text(0.8em)
+  blank-slide[
 
     #grid(
-      gutter: 5em,
+      columns: (1fr, 2fr),
+      gutter: 2em,
       align: horizon,
-      {
-        grid(
-          align: horizon + left,
+      [
+        #center_[#text(size:1.5em)[*¡Gracias!*]] #v(1em)
+
+        #set text(0.8em)
+        #grid(
+          columns: 1,
+          align: horizon + center,
           qr-code("https://www.juanrloaiza.com", height: 5em),
-          [www.juanrloaiza.com],
-          qr-code("https://www.juanrloaiza.com", height: 5em),
+          [www.juanrloaiza.com #v(2em)],
+          qr-code("https://www.santiagomindandcognition.cl", height: 5em),
           [www.santiagomindandcognition.cl],
-        )
-      },
+        )],
+
       // Bibliography
       if bib != none [
         *Bibliografía*
-        #set text(size: 0.5em)
+        #set text(size: 8pt)
         #bib
       ],
     )

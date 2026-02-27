@@ -5,7 +5,7 @@
   date: "27 de febrero de 2026",
   bib: bibliography("2026.02 - UniAndes.bib"),
   anid: true,
-  draft: true,
+  draft: false,
 )
 
 #set enum(numbering: "(1)")

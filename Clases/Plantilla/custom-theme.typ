@@ -49,16 +49,7 @@
     }
   }
 
-  let footer(self) = {
-    set text(fill: self.colors.neutral-light, size: .5em)
-    set align(bottom)
-    show: pad.with(.4em)
-    utils.call-or-display(self, self.store.title)
-    h(1fr)
-    utils.call-or-display(self, self.store.course)
-    text[ · ]
-    utils.call-or-display(self, self.store.semester)
-  }
+  let footer(self) = {}
   self = utils.merge-dicts(self, config-page(header: header, footer: footer))
   touying-slide(self: self, ..args)
 })

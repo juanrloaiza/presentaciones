@@ -11,3 +11,6 @@ Archive/
 *.snm
 *.blg
 *.sync-conflict*
+
+*.png
+*.jpg

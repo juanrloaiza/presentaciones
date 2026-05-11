@@ -4,6 +4,8 @@
 #import "general-utils.typ": *
 #import "@preview/cades:0.3.1": qr-code
 
+// === Configuration ===
+
 #let main-font = "Vend Sans"
 
 #let colors = (
@@ -15,6 +17,13 @@
   highlight-1: rgb("#5e81ac"),
   highlight-2: rgb("#8fbcbb"),
 )
+
+#let i18n = (
+  es: (thank-you: "¡Gracias!", bibliography: "Bibliografía"),
+  en: (thank-you: "Thank you!", bibliography: "Bibliography"),
+)
+
+// === Slide Layouts ===
 
 #let slide(title: auto, ..args) = touying-slide-wrapper(self => {
   if title != auto {
@@ -147,9 +156,31 @@
   touying-slide(self: self, ..args, body)
 })
 
-#let thank-you-slide(..args) = touying-slide-wrapper(self => {
-  let body = [
-  ]
+#let thank-you-slide(bib: none, lang: "es", ..args) = touying-slide-wrapper(self => {
+  let t = i18n.at(lang)
+  let body = grid(
+    columns: (1fr, 2fr),
+    gutter: 2em,
+    align: horizon,
+    [
+      #center_[#text(size: 1.5em)[*#t.thank-you*]] #v(1em)
+
+      #set text(0.8em)
+      #grid(
+        columns: 1,
+        align: horizon + center,
+        qr-code("https://www.juanrloaiza.com", height: 5em),
+        [www.juanrloaiza.com #v(2em)],
+        qr-code("https://www.santiagomindandcognition.cl", height: 5em),
+        [www.santiagomindandcognition.cl],
+      )],
+
+    if bib != none [
+      *#t.bibliography*
+      #set text(size: 8pt)
+      #bib
+    ],
+  )
 
   touying-slide(self: self, ..args, body)
 })
@@ -164,7 +195,7 @@
   touying-slide(self: self, ..args)
 })
 
-
+// === Theme ===
 
 #let custom-theme(
   ..args,
@@ -227,42 +258,5 @@
 
   title-slide() // Include the Title Slide
   body // The rest of the file content
-
-  blank-slide[
-
-    #grid(
-      columns: (1fr, 2fr),
-      gutter: 2em,
-      align: horizon,
-      [
-        #center_[#text(size:1.5em)[*¡Gracias!*]] #v(1em)
-
-        #set text(0.8em)
-        #grid(
-          columns: 1,
-          align: horizon + center,
-          qr-code("https://www.juanrloaiza.com", height: 5em),
-          [www.juanrloaiza.com #v(2em)],
-          qr-code("https://www.santiagomindandcognition.cl", height: 5em),
-          [www.santiagomindandcognition.cl],
-        )],
-
-      // Bibliography
-      if bib != none [
-        *Bibliografía*
-        #set text(size: 8pt)
-        #bib
-      ],
-    )
-
-  ]
-}
-
-#let footcite(key, ..args) = {
-  footnote[#cite(key, form: "full", ..args)]
-}
-
-#let textcite(key, ..args) = {
-  cite(key, form: "prose", ..args)
-  footcite(key)
+  thank-you-slide(bib: bib, lang: lang)
 }

@@ -129,13 +129,12 @@
 }
 
 #let hidden-footcite(key, ..args) = {
-  footnote(cite(key, form: "full", ..args), numbering: _=>[])
+  footnote(cite(key, form: "full", ..args), numbering: _=>[#h(0.1em) ])
 }
 
-#let textcite(key, ..args) = {
-  cite(key, form: "prose", ..args)
-  hidden-footcite(key)
-}
+#let textcite(key, ..args) = [
+  #cite(key, form: "prose", ..args) #hidden-footcite(key)
+]
 
 #let parencite(key, ..args) = {
   cite(key, form: "normal", ..args)

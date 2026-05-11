@@ -1,6 +1,7 @@
 #import "../../Plantillas/Typst/loaiza-theme.typ": *
 #show: custom-theme.with(
-  title: [Ontological choices in affective science],
+  title: [Ontological choices in affective science \ 
+  #text(size: 0.8em)[Or why I invited David to join us in Santiago]],
   event: [Workshop: Scientific pluralism, ontology, and values],
   date: "May 11, 2026",
   bib: bibliography("2026.05 - Workshop con David Ludwig.bib"),

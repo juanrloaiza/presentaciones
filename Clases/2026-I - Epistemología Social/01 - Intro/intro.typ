@@ -1,6 +1,6 @@
-#import "../../Plantilla/custom-theme.typ": *
+#import "../../../Plantilla/loaiza-theme.typ": *
 #import "@preview/cetz:0.4.2"
-#show: custom-theme.with(
+#show: loaiza-theme.with(
   title: [Introducción],
   course: [
     Epistemología Social
@@ -8,6 +8,7 @@
     Seminario de Problemas de Mente, Lenguaje y Conocimiento
   ],
   semester: "2026-I",
+  draft: false
 )
 
 = Introducción

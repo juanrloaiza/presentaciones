@@ -107,7 +107,7 @@
             align: horizon,
             image(
               width: 5em,
-              "ANID.svg",
+              "assets/ANID.svg",
             ),
             [ Fondecyt Iniciación 11250401 \
               "Objetividad y diversidad cultural de las emociones: \ hacia una ciencia intercultural y situada de la emoción"],
@@ -121,7 +121,7 @@
       dy: -6pt,
       image(
         width: 10em,
-        "logo_uah_blanco.svg",
+        "assets/logo_uah_blanco.svg",
       ),
     )
 
@@ -145,8 +145,12 @@
         Universidad Alberto Hurtado]
     }
     text(size: 0.8em)[
-
-      #self.store.event\
+      #if self.store.course != none [
+        #self.store.course
+      ] else if self.store.event != none [
+        #self.store.event
+      ]
+      \
       #self.store.date
     ]
     if info.date != none {
@@ -197,10 +201,11 @@
 
 // === Theme ===
 
-#let custom-theme(
+#let loaiza-theme(
   ..args,
   title: auto,
-  event: auto,
+  event: none,
+  course: none,
   date: none,
   colors: colors,
   lang: "es",
@@ -243,6 +248,7 @@
       title: title,
       slide-title: none,
       event: event,
+      course: course,
       date: date,
       anid: anid,
       draft: draft,

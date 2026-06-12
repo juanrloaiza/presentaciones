@@ -75,6 +75,8 @@
   text(fill: color)[#str]
 }
 
+#let hl = highlight
+
 #let standard-argument(..propositions) = {
   let propositions = (..propositions.pos(),)
   let conclusion = propositions.pop()

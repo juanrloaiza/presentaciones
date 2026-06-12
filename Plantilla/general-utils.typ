@@ -21,6 +21,7 @@
     #body
   ]
 }
+#let special(txt) = centered-box(["#txt"])
 
 #let definition(
   ..args,
@@ -131,7 +132,7 @@
 }
 
 #let hidden-footcite(key, ..args) = {
-  footnote(cite(key, form: "full", ..args), numbering: _=>[#h(0.1em) ])
+  footnote(cite(key, form: "full", ..args), numbering: _ => [#h(0.1em) ])
 }
 
 #let textcite(key, ..args) = [

@@ -1,5 +1,5 @@
-#import "../../Plantillas/Typst/loaiza-theme.typ": *
-#show: custom-theme.with(
+#import "../../Plantilla/loaiza-theme.typ": *
+#show: loaiza-theme.with(
   title: [Evidencia lingüística \ en ciencia de la emoción],
   event: [Universidad de Concepción],
   date: "23 de abril de 2026",
